@@ -11,6 +11,7 @@ import gamestackTexture2Large from '~/assets/gamestack-list-large.jpg';
 import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jpg';
 import gamestackTexture2 from '~/assets/gamestack-list.jpg';
 import chronosDashboard from '~/assets/chronos-dashboard.png';
+import transactiqDashboard from '~/assets/transactiq-dashboard.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -142,8 +143,8 @@ export const Home = () => {
           alt: 'TransactIQ Analytics Dashboard',
           textures: [
             {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
+              srcSet: `${transactiqDashboard} 1280w, ${transactiqDashboard} 2560w`,
+              placeholder: transactiqDashboard,
             },
           ],
         }}

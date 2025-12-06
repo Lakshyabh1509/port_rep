@@ -144,14 +144,14 @@ export const Resume = () => {
                                 <Text size="l" weight="bold" as="span" className={styles.eduSchool}>
                                     Vellore Institute of Technology (VIT), Vellore
                                 </Text>
-                                <span className={styles.separator}>|</span>
+                                <span className={styles.eduSeparator}>|</span>
                                 <Text size="l" as="span" className={styles.eduDegree}>
-                                       B.Tech in Computer Science
+                                    B.Tech in Computer Science
                                 </Text>
                             </div>
                             <div className={styles.eduRow}>
                                 <Text as="span" className={styles.eduGpa}>GPA: 7.53</Text>
-                                <span className={styles.separator}>|</span>
+                                <span className={styles.eduSeparator}>|</span>
                                 <Text as="span" className={styles.expDate}>Sept 2022 – Sept 2026</Text>
                             </div>
                         </div>

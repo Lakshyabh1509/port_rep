@@ -216,3 +216,8 @@
     gap: var(--spaceXS);
     margin-bottom: var(--spaceXS);
 }
+
+.eduSeparator {
+    opacity: 0.5;
+    margin: 0 var(--spaceS);
+}

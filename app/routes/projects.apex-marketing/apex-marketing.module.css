@@ -25,11 +25,12 @@
 }
 
 .featureCard {
-    background: rgb(var(--rgbAccent) / 0.05);
-    border: 1px solid rgb(var(--rgbAccent) / 0.15);
+    background: rgba(17, 21, 28, 0.85);
+    border: 1px solid rgb(var(--rgbAccent) / 0.25);
     border-radius: var(--borderRadiusL);
     padding: var(--spaceL);
     text-align: center;
+    backdrop-filter: blur(10px);
     transition: transform var(--durationM) var(--bezierFastoutSlowin),
         border-color var(--durationM) var(--bezierFastoutSlowin);
 }
@@ -68,13 +69,14 @@
 }
 
 .techBadge {
-    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.15), rgb(var(--rgbAccent) / 0.05));
+    background: rgba(17, 21, 28, 0.85);
     border: 1px solid rgb(var(--rgbAccent) / 0.3);
     border-radius: var(--borderRadiusM);
     padding: var(--spaceXS) var(--spaceM);
     font-size: var(--fontSizeBodyS);
     font-weight: var(--fontWeightMedium);
     color: rgb(var(--rgbAccent));
+    backdrop-filter: blur(10px);
 }
 
 .projectLinks {
@@ -111,11 +113,12 @@
 }
 
 .metricCard {
-    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.1), rgb(var(--rgbAccent) / 0.05));
+    background: rgba(17, 21, 28, 0.85);
     border: 1px solid rgb(var(--rgbAccent) / 0.2);
     border-radius: var(--borderRadiusL);
     padding: var(--spaceXL) var(--spaceL);
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
 .metricValue {
@@ -140,9 +143,10 @@
 }
 
 .keyword {
-    background: rgb(var(--rgbText) / 0.05);
+    background: rgba(17, 21, 28, 0.85);
     padding: var(--spaceXS) var(--spaceS);
     border-radius: var(--borderRadiusS);
     font-size: var(--fontSizeBodyXS);
     color: rgb(var(--rgbText) / 0.6);
+    backdrop-filter: blur(10px);
 }

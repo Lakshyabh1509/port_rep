@@ -1,19 +1,8 @@
-import sliceBackgroundLarge from '~/assets/slice-background-large.jpg';
-import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
-import sliceBackground from '~/assets/slice-background.jpg';
-import sliceTextureLarge from '~/assets/slice-app-large.jpg';
-import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceTexture from '~/assets/slice-app.jpg';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
-import { Loader } from '~/components/loader';
-import { deviceModels } from '~/components/model/device-models';
-import { useHydrated } from '~/hooks/useHydrated';
-import { Suspense, lazy, useState } from 'react';
 import { media } from '~/utils/style';
 import {
-    ProjectBackground,
     ProjectContainer,
     ProjectHeader,
     ProjectSection,
@@ -24,10 +13,9 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './savoo.module.css';
+import { HouseAnimation } from './HouseAnimation';
 
-const Model = lazy(() =>
-    import('~/components/model').then(module => ({ default: module.Model }))
-);
+
 
 const title = 'SAVOO – High-Performance Dual Backend Recipe API (PHP + Node.js)';
 const description =
@@ -46,19 +34,11 @@ export const meta = () => {
 export const Savoo = () => {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
-    const isHydrated = useHydrated();
-    const [modelLoaded, setModelLoaded] = useState(false);
-    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
             <ProjectContainer>
-                <ProjectBackground
-                    opacity={isDark ? 0.5 : 0.8}
-                    src={sliceBackground}
-                    srcSet={`${sliceBackground} 1080w, ${sliceBackgroundLarge} 2160w`}
-                    placeholder={sliceBackgroundPlaceholder}
-                />
+                <HouseAnimation />
                 <ProjectHeader
                     title={title}
                     description={description}
@@ -66,36 +46,7 @@ export const Savoo = () => {
                     roles={roles}
                 />
 
-                <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <div className={styles.modelContainer}>
-                            {!modelLoaded && (
-                                <Loader center className={styles.loader} />
-                            )}
-                            {isHydrated && (
-                                <Suspense>
-                                    <Model
-                                        alt="SAVOO API Architecture"
-                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
-                                        showDelay={700}
-                                        onLoad={() => setModelLoaded(true)}
-                                        show={true}
-                                        models={[
-                                            {
-                                                ...deviceModels.laptop,
-                                                texture: {
-                                                    srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-                                                    placeholder: sliceTexturePlaceholder,
-                                                    sizes: laptopSizes,
-                                                },
-                                            },
-                                        ]}
-                                    />
-                                </Suspense>
-                            )}
-                        </div>
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -113,7 +64,7 @@ export const Savoo = () => {
                     </ProjectTextRow>
                     <div className={styles.archGrid}>
                         <div className={styles.archCard}>
-                            <h4>🐘 PHP Backend</h4>
+                            <h4>PHP Backend</h4>
                             <ul>
                                 <li>Nginx → PHP-FPM</li>
                                 <li>Clean architecture + PSR-4</li>
@@ -123,7 +74,7 @@ export const Savoo = () => {
                             </ul>
                         </div>
                         <div className={styles.archCard}>
-                            <h4>🟢 Node.js Backend</h4>
+                            <h4>Node.js Backend</h4>
                             <ul>
                                 <li>Fastify + TypeScript</li>
                                 <li>Access + refresh tokens</li>
@@ -140,21 +91,18 @@ export const Savoo = () => {
                     </ProjectTextRow>
                     <div className={styles.featureList}>
                         <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>🐳</span>
                             <div>
                                 <h5>Docker Compose</h5>
                                 <p>API + MySQL + Redis full stack containerization</p>
                             </div>
                         </div>
                         <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>🔐</span>
                             <div>
                                 <h5>Argon2id Password Hashing</h5>
                                 <p>State-of-the-art password security</p>
                             </div>
                         </div>
                         <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>🛡️</span>
                             <div>
                                 <h5>Strict CORS & Sanitization</h5>
                                 <p>Enterprise-grade input validation and security</p>

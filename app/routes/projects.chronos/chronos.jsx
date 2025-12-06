@@ -1,14 +1,6 @@
-import chronosDashboard from '~/assets/chronos-dashboard.png';
-import chronosScreenshot1 from '~/assets/chronos-screenshot-1.png';
-import chronosScreenshot2 from '~/assets/chronos-screenshot-2.png';
 import { Footer } from '~/components/footer';
-import { Image } from '~/components/image';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
-import { Loader } from '~/components/loader';
-import { deviceModels } from '~/components/model/device-models';
-import { useHydrated } from '~/hooks/useHydrated';
-import { Suspense, lazy, useState } from 'react';
 import { media } from '~/utils/style';
 import {
     ProjectContainer,
@@ -23,9 +15,7 @@ import { baseMeta } from '~/utils/meta';
 import styles from './chronos.module.css';
 import { DisplacementSphere } from './DisplacementSphere';
 
-const Model = lazy(() =>
-    import('~/components/model').then(module => ({ default: module.Model }))
-);
+
 
 const title = 'CHRONOS COMPLIANCE ENGINE';
 const description =
@@ -43,9 +33,6 @@ export const meta = () => {
 
 export const Chronos = () => {
     const { theme } = useTheme();
-    const isHydrated = useHydrated();
-    const [modelLoaded, setModelLoaded] = useState(false);
-    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
@@ -58,36 +45,7 @@ export const Chronos = () => {
                     roles={roles}
                 />
 
-                <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <div className={styles.modelContainer}>
-                            {!modelLoaded && (
-                                <Loader center className={styles.loader} />
-                            )}
-                            {isHydrated && (
-                                <Suspense>
-                                    <Model
-                                        alt="Chronos Compliance Engine Dashboard"
-                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
-                                        showDelay={700}
-                                        onLoad={() => setModelLoaded(true)}
-                                        show={true}
-                                        models={[
-                                            {
-                                                ...deviceModels.laptop,
-                                                texture: {
-                                                    srcSet: `${chronosDashboard} 1280w, ${chronosDashboard} 2560w`,
-                                                    placeholder: chronosDashboard,
-                                                    sizes: laptopSizes,
-                                                },
-                                            },
-                                        ]}
-                                    />
-                                </Suspense>
-                            )}
-                        </div>
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -101,18 +59,7 @@ export const Chronos = () => {
                     </ProjectTextRow>
                 </ProjectSection>
 
-                <ProjectSection light>
-                    <ProjectSectionContent>
-                        <Image
-                            srcSet={`${chronosScreenshot1} 800w, ${chronosScreenshot1} 1920w`}
-                            width={1920}
-                            height={1080}
-                            placeholder={chronosScreenshot1}
-                            alt="C-AMP Dashboard Overview"
-                            sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
-                        />
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -183,18 +130,7 @@ export const Chronos = () => {
                     </div>
                 </ProjectSection>
 
-                <ProjectSection light>
-                    <ProjectSectionContent>
-                        <Image
-                            srcSet={`${chronosScreenshot2} 800w, ${chronosScreenshot2} 1920w`}
-                            width={1920}
-                            height={1080}
-                            placeholder={chronosScreenshot2}
-                            alt="C-AMP Login Interface"
-                            sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
-                        />
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectSectionContent>

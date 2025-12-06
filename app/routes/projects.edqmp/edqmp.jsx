@@ -1,11 +1,6 @@
-import edqmpDashboard from '~/assets/edqmp-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
-import { Loader } from '~/components/loader';
-import { deviceModels } from '~/components/model/device-models';
-import { useHydrated } from '~/hooks/useHydrated';
-import { Suspense, lazy, useState } from 'react';
 import { media } from '~/utils/style';
 import {
     ProjectContainer,
@@ -18,10 +13,9 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './edqmp.module.css';
+import { CityAnimation } from './CityAnimation';
 
-const Model = lazy(() =>
-    import('~/components/model').then(module => ({ default: module.Model }))
-);
+
 
 const title = 'EDQMP – Enterprise Data Quality & Monitoring Platform';
 const description =
@@ -39,13 +33,11 @@ export const meta = () => {
 
 export const EDQMP = () => {
     const { theme } = useTheme();
-    const isHydrated = useHydrated();
-    const [modelLoaded, setModelLoaded] = useState(false);
-    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
             <ProjectContainer>
+                <CityAnimation />
                 <ProjectHeader
                     title={title}
                     description={description}
@@ -53,36 +45,7 @@ export const EDQMP = () => {
                     roles={roles}
                 />
 
-                <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <div className={styles.modelContainer}>
-                            {!modelLoaded && (
-                                <Loader center className={styles.loader} />
-                            )}
-                            {isHydrated && (
-                                <Suspense>
-                                    <Model
-                                        alt="EDQMP Data Quality Dashboard"
-                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
-                                        showDelay={700}
-                                        onLoad={() => setModelLoaded(true)}
-                                        show={true}
-                                        models={[
-                                            {
-                                                ...deviceModels.laptop,
-                                                texture: {
-                                                    srcSet: `${edqmpDashboard} 1280w, ${edqmpDashboard} 2560w`,
-                                                    placeholder: edqmpDashboard,
-                                                    sizes: laptopSizes,
-                                                },
-                                            },
-                                        ]}
-                                    />
-                                </Suspense>
-                            )}
-                        </div>
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -100,17 +63,14 @@ export const EDQMP = () => {
                     </ProjectTextRow>
                     <div className={styles.featureGrid}>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>✅</span>
                             <h4>Data Quality Engine</h4>
                             <p>Referential integrity checks, schema validation, outlier detection (Z-score, Isolation Forest), time-series anomaly detection</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📈</span>
                             <h4>Pipeline Performance Monitoring</h4>
                             <p>DAG execution tracking, SLA monitoring, predictive alerts, impact analysis</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📋</span>
                             <h4>Governance Framework</h4>
                             <p>Central metadata repository, automated remediation, audit-ready exports</p>
                         </div>

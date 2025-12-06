@@ -1,11 +1,6 @@
-import synapseDashboard from '~/assets/synapse-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
-import { Loader } from '~/components/loader';
-import { deviceModels } from '~/components/model/device-models';
-import { useHydrated } from '~/hooks/useHydrated';
-import { Suspense, lazy, useState } from 'react';
 import { media } from '~/utils/style';
 import {
     ProjectContainer,
@@ -18,10 +13,9 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './ai-automation.module.css';
+import { GlassAnimation } from './GlassAnimation';
 
-const Model = lazy(() =>
-    import('~/components/model').then(module => ({ default: module.Model }))
-);
+
 
 const title = 'SYNAPSE – AI Automation & Workflow Orchestration Platform';
 const description =
@@ -39,13 +33,11 @@ export const meta = () => {
 
 export const AIAutomation = () => {
     const { theme } = useTheme();
-    const isHydrated = useHydrated();
-    const [modelLoaded, setModelLoaded] = useState(false);
-    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
             <ProjectContainer>
+                <GlassAnimation />
                 <ProjectHeader
                     title={title}
                     description={description}
@@ -53,36 +45,7 @@ export const AIAutomation = () => {
                     roles={roles}
                 />
 
-                <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <div className={styles.modelContainer}>
-                            {!modelLoaded && (
-                                <Loader center className={styles.loader} />
-                            )}
-                            {isHydrated && (
-                                <Suspense>
-                                    <Model
-                                        alt="Synapse AI Automation Platform"
-                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
-                                        showDelay={700}
-                                        onLoad={() => setModelLoaded(true)}
-                                        show={true}
-                                        models={[
-                                            {
-                                                ...deviceModels.laptop,
-                                                texture: {
-                                                    srcSet: `${synapseDashboard} 1280w, ${synapseDashboard} 2560w`,
-                                                    placeholder: synapseDashboard,
-                                                    sizes: laptopSizes,
-                                                },
-                                            },
-                                        ]}
-                                    />
-                                </Suspense>
-                            )}
-                        </div>
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -101,7 +64,6 @@ export const AIAutomation = () => {
                     </ProjectTextRow>
                     <div className={styles.moduleGrid}>
                         <div className={styles.moduleCard}>
-                            <div className={styles.moduleIcon}>🌐</div>
                             <h3>Brochure Generator</h3>
                             <p>
                                 Auto web context extraction, JSON schema structured output,
@@ -114,7 +76,6 @@ export const AIAutomation = () => {
                             </div>
                         </div>
                         <div className={styles.moduleCard}>
-                            <div className={styles.moduleIcon}>✈️</div>
                             <h3>Flight Assistant</h3>
                             <p>
                                 Multi-turn conversational AI, image upload + ticket parsing,
@@ -127,7 +88,6 @@ export const AIAutomation = () => {
                             </div>
                         </div>
                         <div className={styles.moduleCard}>
-                            <div className={styles.moduleIcon}>📚</div>
                             <h3>Knowledge Worker (RAG)</h3>
                             <p>
                                 Document upload, summary generation, query with cited sources,

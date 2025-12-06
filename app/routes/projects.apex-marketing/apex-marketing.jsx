@@ -1,11 +1,6 @@
-import apexDashboard from '~/assets/apex-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
-import { Loader } from '~/components/loader';
-import { deviceModels } from '~/components/model/device-models';
-import { useHydrated } from '~/hooks/useHydrated';
-import { Suspense, lazy, useState } from 'react';
 import { media } from '~/utils/style';
 import {
     ProjectContainer,
@@ -18,10 +13,9 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './apex-marketing.module.css';
+import { BuddhaAnimation } from './BuddhaAnimation';
 
-const Model = lazy(() =>
-    import('~/components/model').then(module => ({ default: module.Model }))
-);
+
 
 const title = 'APEX MARKETING INTELLIGENCE SUITE';
 const description =
@@ -39,13 +33,11 @@ export const meta = () => {
 
 export const ApexMarketing = () => {
     const { theme } = useTheme();
-    const isHydrated = useHydrated();
-    const [modelLoaded, setModelLoaded] = useState(false);
-    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
             <ProjectContainer>
+                <BuddhaAnimation />
                 <ProjectHeader
                     title={title}
                     description={description}
@@ -53,36 +45,7 @@ export const ApexMarketing = () => {
                     roles={roles}
                 />
 
-                <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <div className={styles.modelContainer}>
-                            {!modelLoaded && (
-                                <Loader center className={styles.loader} />
-                            )}
-                            {isHydrated && (
-                                <Suspense>
-                                    <Model
-                                        alt="Apex Marketing Suite Dashboard"
-                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
-                                        showDelay={700}
-                                        onLoad={() => setModelLoaded(true)}
-                                        show={true}
-                                        models={[
-                                            {
-                                                ...deviceModels.laptop,
-                                                texture: {
-                                                    srcSet: `${apexDashboard} 1280w, ${apexDashboard} 2560w`,
-                                                    placeholder: apexDashboard,
-                                                    sizes: laptopSizes,
-                                                },
-                                            },
-                                        ]}
-                                    />
-                                </Suspense>
-                            )}
-                        </div>
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -101,27 +64,22 @@ export const ApexMarketing = () => {
                     </ProjectTextRow>
                     <div className={styles.featureGrid}>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>🔮</span>
                             <h4>Predictive Analytics Engine</h4>
                             <p>Propensity scoring (0–100), churn risk detection, cohort retention analysis, A/B test significance computation, multi-touch attribution modeling, seasonality decomposition</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📺</span>
                             <h4>Real-Time Collaboration</h4>
                             <p>Firebase chat rooms, live screen sharing (WebRTC), file sharing with virus checks, presence indicators + notifications</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>🔄</span>
                             <h4>ETL & Data Ingestion</h4>
                             <p>Salesforce, HubSpot, Google Analytics connectors, data lineage tracking, data quality validation, scheduled reporting to stakeholders</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>🛡️</span>
                             <h4>Governance & Security</h4>
                             <p>Row-Level Security (RLS), GDPR/CCPA workflows (delete, redaction), Role-Based Access Control, audit logging</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📊</span>
                             <h4>Interactive Dashboards</h4>
                             <p>Attribution dashboards, customer journey mapping, cohort curves, campaign scorecards, self-serve report builder</p>
                         </div>

@@ -1,11 +1,6 @@
-import omninexusDashboard from '~/assets/omninexus-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
-import { Loader } from '~/components/loader';
-import { deviceModels } from '~/components/model/device-models';
-import { useHydrated } from '~/hooks/useHydrated';
-import { Suspense, lazy, useState } from 'react';
 import { media } from '~/utils/style';
 import {
     ProjectContainer,
@@ -18,10 +13,9 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './omninexus.module.css';
+import { P5Animation } from './P5Animation';
 
-const Model = lazy(() =>
-    import('~/components/model').then(module => ({ default: module.Model }))
-);
+
 
 const title = 'OMNINEXUS ENTERPRISE INTELLIGENCE SUITE';
 const description =
@@ -39,13 +33,11 @@ export const meta = () => {
 
 export const OmniNexus = () => {
     const { theme } = useTheme();
-    const isHydrated = useHydrated();
-    const [modelLoaded, setModelLoaded] = useState(false);
-    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
             <ProjectContainer>
+                <P5Animation />
                 <ProjectHeader
                     title={title}
                     description={description}
@@ -53,36 +45,7 @@ export const OmniNexus = () => {
                     roles={roles}
                 />
 
-                <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <div className={styles.modelContainer}>
-                            {!modelLoaded && (
-                                <Loader center className={styles.loader} />
-                            )}
-                            {isHydrated && (
-                                <Suspense>
-                                    <Model
-                                        alt="OmniNexus Platform Dashboard"
-                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
-                                        showDelay={700}
-                                        onLoad={() => setModelLoaded(true)}
-                                        show={true}
-                                        models={[
-                                            {
-                                                ...deviceModels.laptop,
-                                                texture: {
-                                                    srcSet: `${omninexusDashboard} 1280w, ${omninexusDashboard} 2560w`,
-                                                    placeholder: omninexusDashboard,
-                                                    sizes: laptopSizes,
-                                                },
-                                            },
-                                        ]}
-                                    />
-                                </Suspense>
-                            )}
-                        </div>
-                    </ProjectSectionContent>
-                </ProjectSection>
+
 
                 <ProjectSection>
                     <ProjectTextRow>
@@ -101,22 +64,18 @@ export const OmniNexus = () => {
                     </ProjectTextRow>
                     <div className={styles.featureGrid}>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📊</span>
                             <h4>Command Center Dashboard</h4>
                             <p>Live KPI monitoring, compliance heatmap calendar, event drill-down, real-time event ticker feed</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📋</span>
                             <h4>Corporate Action Management Platform (C-AMP)</h4>
                             <p>Portfolio management with covenant details, documentation deliverable tracking, SLA-based escalation workflows, data ingestion via upload + API monitoring</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>📑</span>
                             <h4>Intelligent Reporting Suite</h4>
                             <p>Pitchbooks, Teaser Decks, CIMs generation with jsPDF + SheetJS, financial modeling + scenario analysis, data validation & error handling</p>
                         </div>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>🤖</span>
                             <h4>AI Assistant</h4>
                             <p>GPT/Claude-based financial Q&A, source citation, portfolio insight generation</p>
                         </div>

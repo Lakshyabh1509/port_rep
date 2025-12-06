@@ -103,9 +103,9 @@ export const Experience = ({ id, visible, sectionRef }) => {
                                 Education
                             </Text>
                             <div className={styles.educationCard}>
-                                <Text size="m" weight="bold">{education.institution}</Text>
-                                <Text size="s">{education.degree} | GPA: {education.gpa}</Text>
-                                <Text size="s" className={styles.period}>{education.period}</Text>
+                                <Text size="m" weight="bold" as="div" style={{ marginBottom: '4px' }}>{education.institution}</Text>
+                                <Text size="s" as="div" style={{ marginBottom: '4px' }}>{education.degree} | GPA: {education.gpa}</Text>
+                                <Text size="s" className={styles.period} as="div">{education.period}</Text>
                             </div>
                         </div>
 

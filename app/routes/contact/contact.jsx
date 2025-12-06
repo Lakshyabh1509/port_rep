@@ -28,10 +28,10 @@ const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
-// EmailJS configuration - you'll need to set these up at emailjs.com
-const EMAILJS_SERVICE_ID = 'service_portfolio';
-const EMAILJS_TEMPLATE_ID = 'template_contact';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = 'service_s7tuphn';
+const EMAILJS_TEMPLATE_ID = 'template_4wcsyvg';
+const EMAILJS_PUBLIC_KEY = 'uYlCkokLPBopN0_oq';
 
 export const Contact = () => {
   const errorRef = useRef();

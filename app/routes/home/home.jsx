@@ -137,16 +137,12 @@ export const Home = () => {
         buttonText="View Project"
         buttonLink="/projects/transactiq"
         model={{
-          type: 'phone',
+          type: 'laptop',
           alt: 'TransactIQ Analytics Dashboard',
           textures: [
             {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
-            },
-            {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
+              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+              placeholder: sprTexturePlaceholder,
             },
           ],
         }}
@@ -184,16 +180,12 @@ export const Home = () => {
         buttonText="View Project"
         buttonLink="/projects/omninexus"
         model={{
-          type: 'phone',
+          type: 'laptop',
           alt: 'OmniNexus Platform Dashboard',
           textures: [
             {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
-            },
-            {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
+              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+              placeholder: sliceTexturePlaceholder,
             },
           ],
         }}

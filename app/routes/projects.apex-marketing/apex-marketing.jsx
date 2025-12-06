@@ -1,6 +1,14 @@
+import sliceTextureLarge from '~/assets/slice-app-large.jpg';
+import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
+import sliceTexture from '~/assets/slice-app.jpg';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
+import { Loader } from '~/components/loader';
+import { deviceModels } from '~/components/model/device-models';
+import { useHydrated } from '~/hooks/useHydrated';
+import { Suspense, lazy, useState } from 'react';
+import { media } from '~/utils/style';
 import {
     ProjectContainer,
     ProjectHeader,
@@ -12,6 +20,10 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './apex-marketing.module.css';
+
+const Model = lazy(() =>
+    import('~/components/model').then(module => ({ default: module.Model }))
+);
 
 const title = 'APEX MARKETING INTELLIGENCE SUITE';
 const description =
@@ -29,6 +41,9 @@ export const meta = () => {
 
 export const ApexMarketing = () => {
     const { theme } = useTheme();
+    const isHydrated = useHydrated();
+    const [modelLoaded, setModelLoaded] = useState(false);
+    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
@@ -41,6 +56,37 @@ export const ApexMarketing = () => {
                 />
 
                 <ProjectSection padding="top">
+                    <ProjectSectionContent>
+                        <div className={styles.modelContainer}>
+                            {!modelLoaded && (
+                                <Loader center className={styles.loader} />
+                            )}
+                            {isHydrated && (
+                                <Suspense>
+                                    <Model
+                                        alt="Apex Marketing Suite Dashboard"
+                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
+                                        showDelay={700}
+                                        onLoad={() => setModelLoaded(true)}
+                                        show={true}
+                                        models={[
+                                            {
+                                                ...deviceModels.laptop,
+                                                texture: {
+                                                    srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+                                                    placeholder: sliceTexturePlaceholder,
+                                                    sizes: laptopSizes,
+                                                },
+                                            },
+                                        ]}
+                                    />
+                                </Suspense>
+                            )}
+                        </div>
+                    </ProjectSectionContent>
+                </ProjectSection>
+
+                <ProjectSection>
                     <ProjectTextRow>
                         <ProjectSectionHeading>Executive Summary</ProjectSectionHeading>
                         <ProjectSectionText>

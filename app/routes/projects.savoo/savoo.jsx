@@ -1,9 +1,17 @@
 import sliceBackgroundLarge from '~/assets/slice-background-large.jpg';
 import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
 import sliceBackground from '~/assets/slice-background.jpg';
+import sliceTextureLarge from '~/assets/slice-app-large.jpg';
+import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
+import sliceTexture from '~/assets/slice-app.jpg';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
+import { Loader } from '~/components/loader';
+import { deviceModels } from '~/components/model/device-models';
+import { useHydrated } from '~/hooks/useHydrated';
+import { Suspense, lazy, useState } from 'react';
+import { media } from '~/utils/style';
 import {
     ProjectBackground,
     ProjectContainer,
@@ -16,6 +24,10 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './savoo.module.css';
+
+const Model = lazy(() =>
+    import('~/components/model').then(module => ({ default: module.Model }))
+);
 
 const title = 'SAVOO – High-Performance Dual Backend Recipe API (PHP + Node.js)';
 const description =
@@ -34,6 +46,9 @@ export const meta = () => {
 export const Savoo = () => {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
+    const isHydrated = useHydrated();
+    const [modelLoaded, setModelLoaded] = useState(false);
+    const laptopSizes = `(max-width: ${media.tablet}px) 100vw, 50vw`;
 
     return (
         <>
@@ -52,6 +67,37 @@ export const Savoo = () => {
                 />
 
                 <ProjectSection padding="top">
+                    <ProjectSectionContent>
+                        <div className={styles.modelContainer}>
+                            {!modelLoaded && (
+                                <Loader center className={styles.loader} />
+                            )}
+                            {isHydrated && (
+                                <Suspense>
+                                    <Model
+                                        alt="SAVOO API Architecture"
+                                        cameraPosition={{ x: 0, y: 0, z: 8 }}
+                                        showDelay={700}
+                                        onLoad={() => setModelLoaded(true)}
+                                        show={true}
+                                        models={[
+                                            {
+                                                ...deviceModels.laptop,
+                                                texture: {
+                                                    srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+                                                    placeholder: sliceTexturePlaceholder,
+                                                    sizes: laptopSizes,
+                                                },
+                                            },
+                                        ]}
+                                    />
+                                </Suspense>
+                            )}
+                        </div>
+                    </ProjectSectionContent>
+                </ProjectSection>
+
+                <ProjectSection>
                     <ProjectTextRow>
                         <ProjectSectionHeading>Executive Summary</ProjectSectionHeading>
                         <ProjectSectionText>

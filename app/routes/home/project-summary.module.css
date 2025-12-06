@@ -96,10 +96,11 @@
 
   &[data-device='laptop'] {
     top: 6%;
-    left: 14%;
+    left: -10%;
 
     @media (--mediaDesktop) {
-      --width: 180%;
+      --width: 160%;
+      left: -5%;
     }
 
     @media (--mediaTablet) {

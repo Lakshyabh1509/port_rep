@@ -1,84 +1,38 @@
 # 🚀 Deployment Instructions for Lakshya Portfolio
 
-This guide covers deploying your portfolio to **Vercel** and **Netlify**.
+This guide covers deploying your portfolio to **Netlify** (recommended), **Cloudflare Pages**, and **Vercel**.
 
 ---
 
 ## 📋 Prerequisites
 
 Before deploying, ensure you have:
-- Node.js v19.9.0 or higher installed
+- Node.js v20.0.0 or higher installed
 - Git installed and repository initialized
 - Your code pushed to GitHub/GitLab/Bitbucket
 
 ---
 
-## 🔷 Option 1: Vercel (Recommended - Easiest)
+## 🔶 Option 1: Netlify (Recommended - Best for this project)
 
-### Method A: Deploy via Vercel Dashboard (No CLI required)
+> **Why Netlify?** This project is fully configured for Netlify with the `@netlify/remix-adapter` for server-side rendering. It handles heavy 3D assets better than Vercel's serverless functions.
 
-1. **Go to [vercel.com](https://vercel.com)** and sign up/login with GitHub
-
-2. **Click "Add New Project"**
-
-3. **Import your GitHub repository**
-   - Select `Lakshyabh1509/port_rep` (or your repo name)
-
-4. **Configure Build Settings:**
-   - Framework Preset: `Remix`
-   - Build Command: `npm run build:vercel`
-   - Output Directory: (leave default - auto-detected)
-   - Install Command: `npm install`
-
-5. **Add Environment Variables (Optional):**
-   - `SESSION_SECRET`: A random string for session encryption
-
-6. **Click "Deploy"** and wait for the build to complete!
-
-### Method B: Deploy via Vercel CLI
-
-```bash
-# Install Vercel CLI globally
-npm install -g vercel
-
-# Login to Vercel
-vercel login
-
-# Deploy (first time - will prompt for settings)
-vercel
-
-# Deploy to production
-vercel --prod
-
-# Or use the npm script
-npm run deploy:vercel
-```
-
-### Vercel Environment Variables
-
-Set these in your Vercel project settings (Settings → Environment Variables):
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `SESSION_SECRET` | Secret for session cookies | Optional |
-
----
-
-## 🔶 Option 2: Netlify
-
-### Method A: Deploy via Netlify Dashboard
+### Method A: Deploy via Netlify Dashboard (Easiest)
 
 1. **Go to [netlify.com](https://netlify.com)** and sign up/login with GitHub
 
 2. **Click "Add new site" → "Import an existing project"**
 
-3. **Connect to your Git provider** and select your repository
+3. **Connect to GitHub** and select `Lakshyabh1509/port_rep`
 
-4. **Configure Build Settings:**
-   - Build Command: `npm run build`
-   - Publish Directory: `build/client`
+4. **Build settings will be auto-detected** from `netlify.toml`:
+   - Build Command: `npm run build:netlify`
+   - Publish Directory: `.netlify`
 
-5. **Click "Deploy site"**
+5. **Add Environment Variables (Optional):**
+   - `SESSION_SECRET`: A random string for session encryption
+
+6. **Click "Deploy site"** and wait for the build to complete!
 
 ### Method B: Deploy via Netlify CLI
 
@@ -92,17 +46,8 @@ netlify login
 # Initialize (link to existing site or create new)
 netlify init
 
-# Build the project
-npm run build
-
-# Deploy preview
-netlify deploy --dir=build/client
-
 # Deploy to production
-netlify deploy --prod --dir=build/client
-
-# Or use the npm script
-npm run deploy:netlify
+netlify deploy --prod
 ```
 
 ### Netlify Environment Variables
@@ -113,6 +58,47 @@ Set these in your Netlify site settings (Site settings → Environment variables
 |----------|-------------|----------|
 | `SESSION_SECRET` | Secret for session cookies | Optional |
 | `NODE_VERSION` | `20` (already set in netlify.toml) | Auto-configured |
+
+---
+
+## ☁️ Option 2: Cloudflare Pages (Most Performant)
+
+### Deploy via Cloudflare Dashboard
+
+1. **Go to [pages.cloudflare.com](https://pages.cloudflare.com)** and sign up/login
+
+2. **Create a new project** and connect your GitHub repository
+
+3. **Configure Build Settings:**
+   - Framework Preset: None (or Remix if available)
+   - Build Command: `npm run build:cloudflare`
+   - Build Output Directory: `build/client`
+
+4. **Deploy!**
+
+---
+
+## 🔷 Option 3: Vercel (May have issues)
+
+> ⚠️ **Note**: Vercel may experience `FUNCTION_INVOCATION_FAILED` errors due to serverless function limits with this project's heavy 3D assets. Netlify is recommended instead.
+
+### Deploy via Vercel Dashboard
+
+1. **Go to [vercel.com](https://vercel.com)** and sign up/login with GitHub
+
+2. **Click "Add New Project"**
+
+3. **Import your GitHub repository**
+
+4. **Configure Build Settings:**
+   - Framework Preset: `Remix`
+   - Build Command: `npm run build`
+   - Install Command: `npm install`
+
+5. **Add Environment Variables:**
+   - `SESSION_SECRET`: A random string
+
+6. **Click "Deploy"**
 
 ---
 

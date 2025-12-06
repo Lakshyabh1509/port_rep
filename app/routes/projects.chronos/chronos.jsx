@@ -1,6 +1,4 @@
-import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
+import chronosDashboard from '~/assets/chronos-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
@@ -73,8 +71,8 @@ export const Chronos = () => {
                                             {
                                                 ...deviceModels.laptop,
                                                 texture: {
-                                                    srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-                                                    placeholder: sprTexturePlaceholder,
+                                                    srcSet: `${chronosDashboard} 1280w, ${chronosDashboard} 2560w`,
+                                                    placeholder: chronosDashboard,
                                                     sizes: laptopSizes,
                                                 },
                                             },

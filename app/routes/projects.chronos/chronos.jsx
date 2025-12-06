@@ -1,5 +1,8 @@
 import chronosDashboard from '~/assets/chronos-dashboard.png';
+import chronosScreenshot1 from '~/assets/chronos-screenshot-1.png';
+import chronosScreenshot2 from '~/assets/chronos-screenshot-2.png';
 import { Footer } from '~/components/footer';
+import { Image } from '~/components/image';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
 import { Loader } from '~/components/loader';
@@ -96,13 +99,26 @@ export const Chronos = () => {
                     </ProjectTextRow>
                 </ProjectSection>
 
+                <ProjectSection light>
+                    <ProjectSectionContent>
+                        <Image
+                            srcSet={`${chronosScreenshot1} 800w, ${chronosScreenshot1} 1920w`}
+                            width={1920}
+                            height={1080}
+                            placeholder={chronosScreenshot1}
+                            alt="C-AMP Dashboard Overview"
+                            sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
+                        />
+                    </ProjectSectionContent>
+                </ProjectSection>
+
                 <ProjectSection>
                     <ProjectTextRow>
                         <ProjectSectionHeading>Core Modules & Architecture</ProjectSectionHeading>
                     </ProjectTextRow>
                     <div className={styles.moduleGrid}>
                         <div className={styles.moduleCard}>
-                            <h3>📊 Covenant Interrogation Module (CIM)</h3>
+                            <h3>Covenant Interrogation Module (CIM)</h3>
                             <ul>
                                 <li>Automated computation of Leverage Ratio, DSCR, Interest Coverage, Current Ratio</li>
                                 <li>Threshold logic with Compliant / Warning / Breach classification</li>
@@ -111,7 +127,7 @@ export const Chronos = () => {
                             </ul>
                         </div>
                         <div className={styles.moduleCard}>
-                            <h3>🔄 Corporate Action & Event Lifecycle</h3>
+                            <h3>Corporate Action & Event Lifecycle</h3>
                             <ul>
                                 <li>Tracks: Restructurings, Repricings, Amendments, Waivers, Credit Rating Changes</li>
                                 <li>Event impact analysis at portfolio level</li>
@@ -119,7 +135,7 @@ export const Chronos = () => {
                             </ul>
                         </div>
                         <div className={styles.moduleCard}>
-                            <h3>📋 Documentation Governance</h3>
+                            <h3>Documentation Governance</h3>
                             <ul>
                                 <li>Tracks compliance certificates, financial statements, audit reports</li>
                                 <li>Dashboard indicators: Pending → Received → Overdue</li>
@@ -127,7 +143,7 @@ export const Chronos = () => {
                             </ul>
                         </div>
                         <div className={styles.moduleCard}>
-                            <h3>🤖 AI Compliance Assistant</h3>
+                            <h3>AI Compliance Assistant</h3>
                             <ul>
                                 <li>GPT-based contextual query support</li>
                                 <li>Covenant explanation & regulatory guidance</li>
@@ -135,7 +151,7 @@ export const Chronos = () => {
                             </ul>
                         </div>
                         <div className={styles.moduleCard}>
-                            <h3>📈 Regulatory Reporting Engine</h3>
+                            <h3>Regulatory Reporting Engine</h3>
                             <ul>
                                 <li>Basel III risk-weighted asset (RWA) calculations</li>
                                 <li>Dodd-Frank stress test analytics</li>
@@ -163,6 +179,19 @@ export const Chronos = () => {
                         <span className={styles.techBadge}>Gunicorn</span>
                         <span className={styles.techBadge}>RBAC</span>
                     </div>
+                </ProjectSection>
+
+                <ProjectSection light>
+                    <ProjectSectionContent>
+                        <Image
+                            srcSet={`${chronosScreenshot2} 800w, ${chronosScreenshot2} 1920w`}
+                            width={1920}
+                            height={1080}
+                            placeholder={chronosScreenshot2}
+                            alt="C-AMP Login Interface"
+                            sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
+                        />
+                    </ProjectSectionContent>
                 </ProjectSection>
 
                 <ProjectSection>

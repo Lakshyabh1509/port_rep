@@ -141,13 +141,13 @@ export const Resume = () => {
                         </Heading>
                         <div className={styles.education}>
                             <div className={styles.expHeader}>
-                                <div>
-                                    <Text size="l" weight="bold">B.Tech in Computer Science</Text>
-                                    <Text>Vellore Institute of Technology (VIT), Vellore</Text>
+                                <div className={styles.eduInfo}>
+                                    <Text size="l" weight="bold" as="div" className={styles.eduDegree}>B.Tech in Computer Science</Text>
+                                    <Text as="div" className={styles.eduSchool}>Vellore Institute of Technology (VIT), Vellore</Text>
                                 </div>
                                 <Text className={styles.expDate}>Sept 2022 – Sept 2026</Text>
                             </div>
-                            <Text>GPA: 7.53</Text>
+                            <Text as="div" className={styles.eduGpa}>GPA: 7.53</Text>
                         </div>
                     </div>
 

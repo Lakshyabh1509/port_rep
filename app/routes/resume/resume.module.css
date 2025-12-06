@@ -157,14 +157,24 @@
     margin-bottom: var(--spaceL);
 }
 
-.education .expHeader>div {
+.eduInfo {
     display: flex;
     flex-direction: column;
-    gap: var(--spaceXS);
+    gap: var(--spaceS);
 }
 
-.education .expHeader>div>span:first-child {
-    margin-bottom: var(--spaceXS);
+.eduDegree {
+    color: var(--colorTextTitle);
+    display: block;
+}
+
+.eduSchool {
+    color: var(--colorTextLight);
+    display: block;
+}
+
+.eduGpa {
+    margin-top: var(--spaceS);
 }
 
 .actions {

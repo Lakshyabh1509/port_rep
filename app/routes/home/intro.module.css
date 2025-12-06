@@ -73,6 +73,18 @@
 
 .title {
   letter-spacing: -0.03em;
+
+  @media (--mediaMobile) {
+    font-size: clamp(1.8rem, 9vw, var(--fontSizeH0)) !important;
+  }
+
+  @media (--mediaMobileS) {
+    font-size: clamp(1.4rem, 8vw, 2.5rem) !important;
+  }
+
+  @media (max-width: 380px) {
+    font-size: clamp(1.2rem, 7vw, 2rem) !important;
+  }
 }
 
 .row {

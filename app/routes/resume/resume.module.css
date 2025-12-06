@@ -165,16 +165,20 @@
 
 .eduDegree {
     color: var(--colorTextTitle);
-    display: block;
+    display: inline-block;
+    padding: 0 var(--spaceXS);
 }
 
 .eduSchool {
     color: var(--colorTextLight);
-    display: block;
+    display: inline-block;
+    padding: 0 var(--spaceXS);
 }
 
 .eduGpa {
     margin-top: var(--spaceS);
+    display: inline-block;
+    padding: 0 var(--spaceXS);
 }
 
 .actions {

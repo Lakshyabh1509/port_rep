@@ -1,6 +1,6 @@
 # 🚀 Deployment Instructions for Lakshya Portfolio
 
-This guide covers deploying your portfolio to **Vercel**, **Netlify**, and **Cloudflare Pages** (original).
+This guide covers deploying your portfolio to **Vercel** and **Netlify**.
 
 ---
 
@@ -25,13 +25,13 @@ Before deploying, ensure you have:
    - Select `Lakshyabh1509/port_rep` (or your repo name)
 
 4. **Configure Build Settings:**
-   - Framework Preset: `Other`
-   - Build Command: `npm run build`
-   - Output Directory: `build/client`
+   - Framework Preset: `Remix`
+   - Build Command: `npm run build:vercel`
+   - Output Directory: (leave default - auto-detected)
    - Install Command: `npm install`
 
 5. **Add Environment Variables (Optional):**
-   - `SESSION_SECRET`: A random string for session encryption (e.g., generate with `openssl rand -base64 32`)
+   - `SESSION_SECRET`: A random string for session encryption
 
 6. **Click "Deploy"** and wait for the build to complete!
 
@@ -116,44 +116,14 @@ Set these in your Netlify site settings (Site settings → Environment variables
 
 ---
 
-## ☁️ Option 3: Cloudflare Pages (Original Setup)
-
-This project was originally configured for Cloudflare Pages.
-
-### Deploy via Wrangler CLI
-
-```bash
-# Install Wrangler CLI
-npm install -g wrangler
-
-# Login to Cloudflare
-wrangler login
-
-# Build and deploy
-npm run deploy
-```
-
-### Deploy via Cloudflare Dashboard
-
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
-2. Navigate to **Pages**
-3. Click **Create a project** → **Connect to Git**
-4. Select your repository
-5. Configure:
-   - Build Command: `npm run build`
-   - Build output directory: `build/client`
-6. Deploy!
-
----
-
 ## 🔧 Build Commands Reference
 
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start development server (localhost:7777) |
-| `npm run build` | Build for production |
+| `npm run build` | Build for production (Cloudflare) |
+| `npm run build:vercel` | Build for Vercel deployment |
 | `npm run preview` | Build and preview locally |
-| `npm run deploy` | Deploy to Cloudflare Pages |
 | `npm run deploy:vercel` | Deploy to Vercel |
 | `npm run deploy:netlify` | Deploy to Netlify |
 
@@ -170,11 +140,6 @@ npm run deploy
 1. Go to Site settings → Domain management
 2. Click "Add custom domain"
 3. Follow DNS configuration instructions
-
-### Cloudflare Pages
-1. Go to Pages → Your project → Custom domains
-2. Add your domain
-3. DNS is auto-configured if domain is on Cloudflare
 
 ---
 

@@ -23,6 +23,20 @@ import styles from './root.module.css';
 import './reset.module.css';
 import './global.module.css';
 
+// Get session secret from environment (works on Vercel, Netlify, and Cloudflare)
+function getSessionSecret(context) {
+  // Cloudflare Pages
+  if (context?.cloudflare?.env?.SESSION_SECRET) {
+    return context.cloudflare.env.SESSION_SECRET;
+  }
+  // Vercel / Netlify / Node.js
+  if (typeof process !== 'undefined' && process.env?.SESSION_SECRET) {
+    return process.env.SESSION_SECRET;
+  }
+  // Fallback
+  return 'default-secret-change-in-production';
+}
+
 export const links = () => [
   {
     rel: 'preload',
@@ -59,7 +73,7 @@ export const loader = async ({ request, context }) => {
       maxAge: 604_800,
       path: '/',
       sameSite: 'lax',
-      secrets: [context.cloudflare.env.SESSION_SECRET || ' '],
+      secrets: [getSessionSecret(context)],
       secure: true,
     },
   });

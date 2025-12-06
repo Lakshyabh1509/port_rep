@@ -1,5 +1,19 @@
 import { json, createCookieSessionStorage } from '@remix-run/cloudflare';
 
+// Get session secret from environment (works on Vercel, Netlify, and Cloudflare)
+function getSessionSecret(context) {
+  // Cloudflare Pages
+  if (context?.cloudflare?.env?.SESSION_SECRET) {
+    return context.cloudflare.env.SESSION_SECRET;
+  }
+  // Vercel / Netlify / Node.js
+  if (typeof process !== 'undefined' && process.env?.SESSION_SECRET) {
+    return process.env.SESSION_SECRET;
+  }
+  // Fallback
+  return 'default-secret-change-in-production';
+}
+
 export async function action({ request, context }) {
   const formData = await request.formData();
   const theme = formData.get('theme');
@@ -11,7 +25,7 @@ export async function action({ request, context }) {
       maxAge: 604_800,
       path: '/',
       sameSite: 'lax',
-      secrets: [context.cloudflare.env.SESSION_SECRET || ' '],
+      secrets: [getSessionSecret(context)],
       secure: true,
     },
   });

@@ -1,14 +1,8 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "build/client",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "remix",
   "installCommand": "npm install",
-  "framework": null,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
+  "buildCommand": "npm run build:vercel",
   "headers": [
     {
       "source": "/assets/(.*)",

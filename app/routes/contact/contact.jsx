@@ -16,13 +16,13 @@ import { baseMeta } from '~/utils/meta';
 import emailjs from '@emailjs/browser';
 import styles from './contact.module.css';
 
-export const meta = () => {
+export function meta() {
   return baseMeta({
     title: 'Contact',
     description:
       "Get in touch to discuss AI/ML projects, collaboration opportunities, or to connect",
   });
-};
+}
 
 const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
@@ -33,7 +33,7 @@ const EMAILJS_SERVICE_ID = 'service_s7tuphn';
 const EMAILJS_TEMPLATE_ID = 'template_4wcsyvg';
 const EMAILJS_PUBLIC_KEY = 'uYlCkokLPBopN0_oq';
 
-export const Contact = () => {
+export function Contact() {
   const errorRef = useRef();
   const formRef = useRef();
   const email = useFormInput('');
@@ -221,7 +221,9 @@ export const Contact = () => {
       <Footer className={styles.footer} />
     </Section>
   );
-};
+}
+
+export default Contact;
 
 function getDelay(delayMs, offset = numToMs(0), multiplier = 1) {
   const numDelay = msToNum(delayMs) * multiplier;

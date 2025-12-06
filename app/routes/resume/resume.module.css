@@ -208,3 +208,11 @@
         align-items: center;
     }
 }
+
+.eduRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spaceXS);
+    margin-bottom: var(--spaceXS);
+}

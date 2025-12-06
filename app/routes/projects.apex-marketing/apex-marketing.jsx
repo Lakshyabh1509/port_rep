@@ -1,6 +1,4 @@
-import sliceTextureLarge from '~/assets/slice-app-large.jpg';
-import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceTexture from '~/assets/slice-app.jpg';
+import apexDashboard from '~/assets/apex-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
@@ -73,8 +71,8 @@ export const ApexMarketing = () => {
                                             {
                                                 ...deviceModels.laptop,
                                                 texture: {
-                                                    srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-                                                    placeholder: sliceTexturePlaceholder,
+                                                    srcSet: `${apexDashboard} 1280w, ${apexDashboard} 2560w`,
+                                                    placeholder: apexDashboard,
                                                     sizes: laptopSizes,
                                                 },
                                             },

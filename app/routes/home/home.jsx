@@ -12,6 +12,7 @@ import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jp
 import gamestackTexture2 from '~/assets/gamestack-list.jpg';
 import chronosDashboard from '~/assets/chronos-dashboard.png';
 import transactiqDashboard from '~/assets/transactiq-dashboard.png';
+import apexDashboard from '~/assets/apex-dashboard.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -164,8 +165,8 @@ export const Home = () => {
           alt: 'Apex Marketing Suite Dashboard',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
+              srcSet: `${apexDashboard} 1280w, ${apexDashboard} 2560w`,
+              placeholder: apexDashboard,
             },
           ],
         }}

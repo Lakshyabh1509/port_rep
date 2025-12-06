@@ -1,19 +1,19 @@
 # Netlify Configuration for Lakshya Portfolio
+# Note: Cloudflare Pages is recommended for this project
 
 [build]
-  command = "npm run build:netlify"
-  publish = ".netlify"
+  command = "npm run build:cloudflare"
+  publish = "build/client"
 
 # Environment variables (set these in Netlify dashboard)
 [build.environment]
   NODE_VERSION = "20"
 
-# Netlify Functions for SSR
-[functions]
-  directory = ".netlify/functions-internal"
-  node_bundler = "esbuild"
-  included_files = [".netlify/server/**"]
-
+# Redirects for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 # Cache headers for assets
 [[headers]]

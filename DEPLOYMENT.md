@@ -1,6 +1,6 @@
 # 🚀 Deployment Instructions for Lakshya Portfolio
 
-This guide covers deploying your portfolio to **Netlify** (recommended), **Cloudflare Pages**, and **Vercel**.
+This guide covers deploying your portfolio to **Cloudflare Pages** (recommended), **Netlify**, and **Vercel**.
 
 ---
 
@@ -13,11 +13,62 @@ Before deploying, ensure you have:
 
 ---
 
-## 🔶 Option 1: Netlify (Recommended - Best for this project)
+## ☁️ Option 1: Cloudflare Pages (Recommended - Best for this project)
 
-> **Why Netlify?** This project is fully configured for Netlify with the `@netlify/remix-adapter` for server-side rendering. It handles heavy 3D assets better than Vercel's serverless functions.
+> **Why Cloudflare Pages?** This project uses the Remix Cloudflare adapter which is fully tested and working. Cloudflare Pages offers:
+> - **Unlimited free bandwidth** on the free tier
+> - **Edge-based serving** for faster global performance
+> - **No serverless function timeouts** like Vercel
+> - **Full ESM support** without CommonJS compatibility issues
 
-### Method A: Deploy via Netlify Dashboard (Easiest)
+### Deploy via Cloudflare Dashboard (Easiest)
+
+1. **Go to [pages.cloudflare.com](https://pages.cloudflare.com)** and sign up/login with GitHub
+
+2. **Click "Create a project" → "Connect to Git"**
+
+3. **Select your GitHub repository:** `Lakshyabh1509/port_rep`
+
+4. **Configure Build Settings:**
+   - **Framework preset:** Remix
+   - **Build command:** `npm run build:cloudflare`
+   - **Build output directory:** `build/client`
+   - **Environment variables:** 
+     - `NODE_VERSION` = `20`
+
+5. **Click "Save and Deploy"** and wait for the build to complete (~3-5 minutes)
+
+6. **Access your site** at `https://your-project.pages.dev`
+
+### Deploy via Wrangler CLI
+
+```bash
+# Install Wrangler CLI globally
+npm install -g wrangler
+
+# Login to Cloudflare
+wrangler login
+
+# Build and deploy
+npm run deploy
+```
+
+### Cloudflare Pages Environment Variables
+
+Set these in your Cloudflare Pages project settings:
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `SESSION_SECRET` | Secret for session cookies | Optional |
+| `NODE_VERSION` | `20` | Recommended |
+
+---
+
+## 🔶 Option 2: Netlify (Static Site Mode)
+
+> ⚠️ **Note:** Netlify has compatibility issues with the current Remix version for SSR. Use static site mode instead.
+
+### Deploy via Netlify Dashboard
 
 1. **Go to [netlify.com](https://netlify.com)** and sign up/login with GitHub
 
@@ -26,61 +77,22 @@ Before deploying, ensure you have:
 3. **Connect to GitHub** and select `Lakshyabh1509/port_rep`
 
 4. **Build settings will be auto-detected** from `netlify.toml`:
-   - Build Command: `npm run build:netlify`
-   - Publish Directory: `.netlify`
+   - Build Command: `npm run build:cloudflare`
+   - Publish Directory: `build/client`
 
-5. **Add Environment Variables (Optional):**
-   - `SESSION_SECRET`: A random string for session encryption
-
-6. **Click "Deploy site"** and wait for the build to complete!
-
-### Method B: Deploy via Netlify CLI
-
-```bash
-# Install Netlify CLI globally
-npm install -g netlify-cli
-
-# Login to Netlify
-netlify login
-
-# Initialize (link to existing site or create new)
-netlify init
-
-# Deploy to production
-netlify deploy --prod
-```
+5. **Click "Deploy site"** and wait for the build to complete!
 
 ### Netlify Environment Variables
 
-Set these in your Netlify site settings (Site settings → Environment variables):
-
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `SESSION_SECRET` | Secret for session cookies | Optional |
 | `NODE_VERSION` | `20` (already set in netlify.toml) | Auto-configured |
-
----
-
-## ☁️ Option 2: Cloudflare Pages (Most Performant)
-
-### Deploy via Cloudflare Dashboard
-
-1. **Go to [pages.cloudflare.com](https://pages.cloudflare.com)** and sign up/login
-
-2. **Create a new project** and connect your GitHub repository
-
-3. **Configure Build Settings:**
-   - Framework Preset: None (or Remix if available)
-   - Build Command: `npm run build:cloudflare`
-   - Build Output Directory: `build/client`
-
-4. **Deploy!**
 
 ---
 
 ## 🔷 Option 3: Vercel (May have issues)
 
-> ⚠️ **Note**: Vercel may experience `FUNCTION_INVOCATION_FAILED` errors due to serverless function limits with this project's heavy 3D assets. Netlify is recommended instead.
+> ⚠️ **Note**: Vercel may experience `FUNCTION_INVOCATION_FAILED` errors due to serverless function limits with heavy 3D assets. Cloudflare Pages is recommended instead.
 
 ### Deploy via Vercel Dashboard
 
@@ -107,18 +119,17 @@ Set these in your Netlify site settings (Site settings → Environment variables
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start development server (localhost:7777) |
-| `npm run build` | Build for production (Cloudflare) |
-| `npm run build:vercel` | Build for Vercel deployment |
+| `npm run build:cloudflare` | Build for Cloudflare Pages |
+| `npm run build` | Build for Vercel |
 | `npm run preview` | Build and preview locally |
-| `npm run deploy:vercel` | Deploy to Vercel |
-| `npm run deploy:netlify` | Deploy to Netlify |
+| `npm run deploy` | Deploy to Cloudflare Pages |
 
 ---
 
 ## 🌍 Custom Domain Setup
 
-### Vercel
-1. Go to your project → Settings → Domains
+### Cloudflare Pages
+1. Go to your project → Settings → Custom domains
 2. Add your domain (e.g., `lakshyabhambhani.dev`)
 3. Update DNS records as instructed
 
@@ -126,6 +137,11 @@ Set these in your Netlify site settings (Site settings → Environment variables
 1. Go to Site settings → Domain management
 2. Click "Add custom domain"
 3. Follow DNS configuration instructions
+
+### Vercel
+1. Go to your project → Settings → Domains
+2. Add your domain
+3. Update DNS records as instructed
 
 ---
 
@@ -135,6 +151,7 @@ For all platforms, you may want to set:
 
 ```
 SESSION_SECRET=your-super-secret-random-string-here
+NODE_VERSION=20
 ```
 
 Generate a secure secret:
@@ -151,9 +168,8 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 ## ❓ Troubleshooting
 
 ### Build Fails with Node Version Error
-- Ensure Node.js >= 19.9.0
-- On Vercel: Settings → General → Node.js Version → 20.x
-- On Netlify: Set `NODE_VERSION=20` in environment variables
+- Ensure Node.js >= 20.0.0
+- Set `NODE_VERSION=20` in environment variables
 
 ### Assets Not Loading
 - Check that build output is `build/client`
@@ -167,12 +183,9 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 - Verify EmailJS configuration in the code
 - Check that API keys are set correctly
 
----
-
-## 📞 Support
-
-- **GitHub Issues**: [github.com/Lakshyabh1509/portfolio/issues](https://github.com/Lakshyabh1509/portfolio/issues)
-- **Documentation**: Check the README.md for more details
+### FUNCTION_INVOCATION_FAILED on Vercel
+- This is due to serverless function limits
+- **Solution:** Use Cloudflare Pages instead
 
 ---
 
@@ -180,7 +193,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 
 - [ ] Code pushed to GitHub
 - [ ] Environment variables configured
-- [ ] Build successful locally (`npm run build`)
+- [ ] Build successful locally (`npm run build:cloudflare`)
 - [ ] Domain configured (optional)
 - [ ] SSL/HTTPS enabled (automatic on all platforms)
 - [ ] Test all pages after deployment

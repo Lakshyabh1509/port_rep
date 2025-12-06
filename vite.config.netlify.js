@@ -1,5 +1,5 @@
 import { vitePlugin as remix } from '@remix-run/dev';
-import { netlifyPlugin } from '@netlify/remix-adapter/plugin';
+import { netlifyPlugin } from '@netlify/remix-edge-adapter/plugin';
 import { defineConfig } from 'vite';
 import jsconfigPaths from 'vite-jsconfig-paths';
 import mdx from '@mdx-js/rollup';

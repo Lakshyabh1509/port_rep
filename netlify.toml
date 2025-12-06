@@ -1,18 +1,19 @@
 # Netlify Configuration for Lakshya Portfolio
 
 [build]
-  command = "npm run build"
-  publish = "build/client"
+  command = "npm run build:netlify"
+  publish = ".netlify"
 
 # Environment variables (set these in Netlify dashboard)
 [build.environment]
   NODE_VERSION = "20"
 
-# Redirects for SPA routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Netlify Functions for SSR
+[functions]
+  directory = ".netlify/functions-internal"
+  node_bundler = "esbuild"
+  included_files = [".netlify/server/**"]
+
 
 # Cache headers for assets
 [[headers]]

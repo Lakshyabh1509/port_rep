@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build --config vite.config.vercel.js",
+    "build:netlify": "remix vite:build --config vite.config.netlify.js",
     "build:cloudflare": "remix vite:build",
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
     "start": "wrangler pages dev ./build/client",
@@ -24,6 +25,7 @@
     "@aws-sdk/client-ses": "^3.515.0",
     "@emailjs/browser": "^4.4.1",
     "@mdx-js/react": "^3.0.1",
+    "@netlify/remix-adapter": "^2.7.0",
     "@react-three/fiber": "^8.15.16",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",

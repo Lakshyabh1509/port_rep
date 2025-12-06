@@ -13,6 +13,7 @@ import gamestackTexture2 from '~/assets/gamestack-list.jpg';
 import chronosDashboard from '~/assets/chronos-dashboard.png';
 import transactiqDashboard from '~/assets/transactiq-dashboard.png';
 import apexDashboard from '~/assets/apex-dashboard.png';
+import omninexusDashboard from '~/assets/omninexus-dashboard.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -187,8 +188,8 @@ export const Home = () => {
           alt: 'OmniNexus Platform Dashboard',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
+              srcSet: `${omninexusDashboard} 1280w, ${omninexusDashboard} 2560w`,
+              placeholder: omninexusDashboard,
             },
           ],
         }}

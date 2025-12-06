@@ -1,0 +1,83 @@
+.featureGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spaceL);
+    margin-top: var(--spaceXL);
+    padding: 0 var(--spaceL);
+}
+
+.featureCard {
+    background: rgb(var(--rgbAccent) / 0.05);
+    border: 1px solid rgb(var(--rgbAccent) / 0.15);
+    border-radius: var(--borderRadiusL);
+    padding: var(--spaceL);
+    text-align: center;
+    transition: transform var(--durationM) var(--bezierFastoutSlowin),
+        border-color var(--durationM) var(--bezierFastoutSlowin);
+}
+
+.featureCard:hover {
+    transform: translateY(-4px);
+    border-color: rgb(var(--rgbAccent) / 0.4);
+}
+
+.featureIcon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--spaceS);
+}
+
+.featureCard h4 {
+    color: rgb(var(--rgbAccent));
+    font-size: var(--fontSizeBodyM);
+    font-weight: var(--fontWeightMedium);
+    margin-bottom: var(--spaceS);
+}
+
+.featureCard p {
+    color: var(--colorTextBody);
+    font-size: var(--fontSizeBodyS);
+    line-height: 1.5;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceS);
+    justify-content: center;
+    margin-top: var(--spaceL);
+}
+
+.techBadge {
+    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.15), rgb(var(--rgbAccent) / 0.05));
+    border: 1px solid rgb(var(--rgbAccent) / 0.3);
+    border-radius: var(--borderRadiusM);
+    padding: var(--spaceXS) var(--spaceM);
+    font-size: var(--fontSizeBodyS);
+    font-weight: var(--fontWeightMedium);
+    color: rgb(var(--rgbAccent));
+}
+
+.projectLinks {
+    display: flex;
+    gap: var(--spaceM);
+    margin-top: var(--spaceL);
+    justify-content: center;
+}
+
+.projectLink {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spaceS) var(--spaceL);
+    background: rgb(var(--rgbAccent));
+    color: rgb(var(--rgbBackground));
+    border-radius: var(--borderRadiusM);
+    font-weight: var(--fontWeightMedium);
+    text-decoration: none;
+    transition: transform var(--durationS), opacity var(--durationS);
+}
+
+.projectLink:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

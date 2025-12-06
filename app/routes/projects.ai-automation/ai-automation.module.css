@@ -1,0 +1,97 @@
+.moduleGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spaceXL);
+    margin-top: var(--spaceXL);
+    padding: 0 var(--spaceL);
+}
+
+.moduleCard {
+    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.08), rgb(var(--rgbAccent) / 0.02));
+    border: 1px solid rgb(var(--rgbAccent) / 0.2);
+    border-radius: var(--borderRadiusL);
+    padding: var(--spaceXL);
+    transition: transform var(--durationM) var(--bezierFastoutSlowin),
+        border-color var(--durationM) var(--bezierFastoutSlowin);
+}
+
+.moduleCard:hover {
+    transform: translateY(-8px);
+    border-color: rgb(var(--rgbAccent) / 0.5);
+}
+
+.moduleIcon {
+    font-size: 3rem;
+    margin-bottom: var(--spaceM);
+}
+
+.moduleCard h3 {
+    color: rgb(var(--rgbAccent));
+    font-size: var(--fontSizeH4);
+    font-weight: var(--fontWeightMedium);
+    margin-bottom: var(--spaceM);
+}
+
+.moduleCard p {
+    color: var(--colorTextBody);
+    font-size: var(--fontSizeBodyS);
+    line-height: 1.7;
+    margin-bottom: var(--spaceL);
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceXS);
+}
+
+.techTags span {
+    background: rgb(var(--rgbAccent) / 0.15);
+    color: rgb(var(--rgbAccent));
+    padding: var(--spaceXS) var(--spaceS);
+    border-radius: var(--borderRadiusS);
+    font-size: var(--fontSizeBodyXS);
+    font-weight: var(--fontWeightMedium);
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceS);
+    justify-content: center;
+    margin-top: var(--spaceL);
+}
+
+.techBadge {
+    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.15), rgb(var(--rgbAccent) / 0.05));
+    border: 1px solid rgb(var(--rgbAccent) / 0.3);
+    border-radius: var(--borderRadiusM);
+    padding: var(--spaceXS) var(--spaceM);
+    font-size: var(--fontSizeBodyS);
+    font-weight: var(--fontWeightMedium);
+    color: rgb(var(--rgbAccent));
+}
+
+.projectLinks {
+    display: flex;
+    gap: var(--spaceM);
+    margin-top: var(--spaceL);
+    justify-content: center;
+}
+
+.projectLink {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spaceS) var(--spaceL);
+    background: rgb(var(--rgbAccent));
+    color: rgb(var(--rgbBackground));
+    border-radius: var(--borderRadiusM);
+    font-weight: var(--fontWeightMedium);
+    text-decoration: none;
+    transition: transform var(--durationS), opacity var(--durationS);
+}
+
+.projectLink:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

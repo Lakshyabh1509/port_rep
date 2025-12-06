@@ -1,0 +1,19 @@
+/* TEAM */
+
+Developer, Designer:
+Lakshya Bhambhani
+Gen AI Engineer & Full-Stack Developer
+VIT Vellore, India
+
+/* CONTACT */
+
+Email: lakshyabh1509@gmail.com
+LinkedIn: linkedin.com/in/lakshya-bhambhani-888189260
+GitHub: github.com/Lakshyabh1509
+
+/* SITE */
+
+Last update: 2024/12/05
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: React, Three.js, Remix, Framer Motion
+Software: VS Code

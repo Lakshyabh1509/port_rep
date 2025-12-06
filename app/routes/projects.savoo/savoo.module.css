@@ -1,0 +1,187 @@
+.archGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spaceL);
+    margin-top: var(--spaceXL);
+    padding: 0 var(--spaceL);
+}
+
+.archCard {
+    background: rgb(var(--rgbAccent) / 0.05);
+    border: 1px solid rgb(var(--rgbAccent) / 0.15);
+    border-radius: var(--borderRadiusL);
+    padding: var(--spaceL);
+    transition: transform var(--durationM) var(--bezierFastoutSlowin),
+        border-color var(--durationM) var(--bezierFastoutSlowin);
+}
+
+.archCard:hover {
+    transform: translateY(-4px);
+    border-color: rgb(var(--rgbAccent) / 0.4);
+}
+
+.archCard h4 {
+    color: rgb(var(--rgbAccent));
+    font-size: var(--fontSizeBodyL);
+    font-weight: var(--fontWeightMedium);
+    margin-bottom: var(--spaceM);
+}
+
+.archCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.archCard li {
+    position: relative;
+    padding-left: var(--spaceL);
+    margin-bottom: var(--spaceXS);
+    color: var(--colorTextBody);
+    font-size: var(--fontSizeBodyS);
+}
+
+.archCard li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: rgb(var(--rgbAccent));
+}
+
+.featureList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spaceL);
+    margin-top: var(--spaceXL);
+    padding: 0 var(--spaceL);
+}
+
+.featureItem {
+    display: flex;
+    gap: var(--spaceM);
+    align-items: flex-start;
+    padding: var(--spaceM);
+    background: rgb(var(--rgbAccent) / 0.03);
+    border-radius: var(--borderRadiusM);
+    transition: background var(--durationM) var(--bezierFastoutSlowin);
+}
+
+.featureItem:hover {
+    background: rgb(var(--rgbAccent) / 0.08);
+}
+
+.featureIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.featureItem h5 {
+    color: var(--colorTextTitle);
+    font-size: var(--fontSizeBodyM);
+    font-weight: var(--fontWeightMedium);
+    margin-bottom: var(--spaceXS);
+}
+
+.featureItem p {
+    color: var(--colorTextLight);
+    font-size: var(--fontSizeBodyS);
+    line-height: 1.5;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceS);
+    justify-content: center;
+    margin-top: var(--spaceL);
+    padding: 0 var(--spaceL);
+}
+
+.techBadge {
+    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.15), rgb(var(--rgbAccent) / 0.05));
+    border: 1px solid rgb(var(--rgbAccent) / 0.3);
+    border-radius: var(--borderRadiusM);
+    padding: var(--spaceXS) var(--spaceM);
+    font-size: var(--fontSizeBodyS);
+    font-weight: var(--fontWeightMedium);
+    color: rgb(var(--rgbAccent));
+    transition: transform var(--durationS) var(--bezierFastoutSlowin);
+}
+
+.techBadge:hover {
+    transform: scale(1.05);
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spaceL);
+    margin-top: var(--spaceXL);
+}
+
+.metricCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spaceL);
+    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.1), transparent);
+    border-radius: var(--borderRadiusL);
+    border: 1px solid rgb(var(--rgbAccent) / 0.2);
+}
+
+.metricValue {
+    font-size: 2.5rem;
+    font-weight: var(--fontWeightBold);
+    color: rgb(var(--rgbAccent));
+    line-height: 1;
+    margin-bottom: var(--spaceS);
+}
+
+.metricLabel {
+    font-size: var(--fontSizeBodyS);
+    color: var(--colorTextLight);
+}
+
+.projectLinks {
+    display: flex;
+    gap: var(--spaceM);
+    margin-top: var(--spaceL);
+    justify-content: center;
+}
+
+.projectLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spaceXS);
+    padding: var(--spaceS) var(--spaceL);
+    background: rgb(var(--rgbAccent));
+    color: rgb(var(--rgbBackground));
+    border-radius: var(--borderRadiusM);
+    font-weight: var(--fontWeightMedium);
+    text-decoration: none;
+    transition: transform var(--durationS) var(--bezierFastoutSlowin),
+        opacity var(--durationS) var(--bezierFastoutSlowin);
+}
+
+.projectLink:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+
+    .archGrid,
+    .featureList {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spaceS);
+    }
+
+    .metricsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .metricValue {
+        font-size: 1.8rem;
+    }
+}

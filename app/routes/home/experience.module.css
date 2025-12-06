@@ -1,0 +1,174 @@
+.experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space5XL) var(--spaceL);
+}
+
+.content {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceM);
+  margin-bottom: var(--spaceL);
+}
+
+.tagText {
+  font-size: var(--fontSizeBodyS);
+  font-weight: var(--fontWeightMedium);
+  color: var(--colorTextLight);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transition: opacity var(--durationM) var(--bezierFastoutSlowin);
+}
+
+.tagText[data-visible='true'] {
+  opacity: 1;
+}
+
+.title {
+  margin-bottom: var(--spaceXL);
+  opacity: 0;
+  transition: opacity var(--durationL) var(--bezierFastoutSlowin);
+}
+
+.title[data-visible='true'] {
+  opacity: 1;
+}
+
+.experienceSection {
+  margin-bottom: var(--spaceXL);
+}
+
+.experienceCard {
+  background: rgb(var(--rgbAccent) / 0.05);
+  border: 1px solid rgb(var(--rgbAccent) / 0.1);
+  border-radius: var(--borderRadiusL);
+  padding: var(--spaceL);
+  margin-bottom: var(--spaceL);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--durationL) var(--bezierFastoutSlowin),
+    transform var(--durationL) var(--bezierFastoutSlowin);
+}
+
+.experienceCard[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spaceS);
+  margin-bottom: var(--spaceXS);
+}
+
+.company {
+  color: var(--colorTextTitle);
+}
+
+.period {
+  color: var(--colorTextLight);
+}
+
+.role {
+  color: rgb(var(--rgbAccent));
+  margin-bottom: var(--spaceM);
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlights li {
+  position: relative;
+  padding-left: var(--spaceL);
+  margin-bottom: var(--spaceS);
+}
+
+.highlights li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: rgb(var(--rgbAccent));
+}
+
+.educationSection,
+.leadershipSection {
+  margin-bottom: var(--spaceXL);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--durationL) var(--bezierFastoutSlowin) 0.2s,
+    transform var(--durationL) var(--bezierFastoutSlowin) 0.2s;
+}
+
+.educationSection[data-visible='true'],
+.leadershipSection[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTitle {
+  color: var(--colorTextTitle);
+  margin-bottom: var(--spaceM);
+  display: block;
+}
+
+.educationCard {
+  background: rgb(var(--rgbAccent) / 0.03);
+  border-left: 3px solid rgb(var(--rgbAccent));
+  padding: var(--spaceM) var(--spaceL);
+}
+
+.leadershipList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leadershipList li {
+  position: relative;
+  padding-left: var(--spaceL);
+  margin-bottom: var(--spaceS);
+}
+
+.leadershipList li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: rgb(var(--rgbAccent));
+  font-size: 0.6em;
+  top: 0.4em;
+}
+
+.button {
+  margin-top: var(--spaceL);
+  opacity: 0;
+  transition: opacity var(--durationL) var(--bezierFastoutSlowin) 0.3s;
+}
+
+.button[data-visible='true'] {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: var(--space3XL) var(--spaceM);
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

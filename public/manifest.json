@@ -1,0 +1,15 @@
+{
+  "short_name": "Lakshya Bhambhani",
+  "name": "Portfolio of Lakshya Bhambhani - Gen AI Engineer",
+  "icons": [
+    {
+      "src": "/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#111111",
+  "display": "standalone",
+  "theme_color": "#111111"
+}

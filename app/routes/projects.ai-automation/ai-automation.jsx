@@ -1,6 +1,4 @@
-import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
+import synapseDashboard from '~/assets/synapse-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
@@ -73,8 +71,8 @@ export const AIAutomation = () => {
                                             {
                                                 ...deviceModels.laptop,
                                                 texture: {
-                                                    srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-                                                    placeholder: sprTexturePlaceholder,
+                                                    srcSet: `${synapseDashboard} 1280w, ${synapseDashboard} 2560w`,
+                                                    placeholder: synapseDashboard,
                                                     sizes: laptopSizes,
                                                 },
                                             },

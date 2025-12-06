@@ -14,6 +14,7 @@ import chronosDashboard from '~/assets/chronos-dashboard.png';
 import transactiqDashboard from '~/assets/transactiq-dashboard.png';
 import apexDashboard from '~/assets/apex-dashboard.png';
 import omninexusDashboard from '~/assets/omninexus-dashboard.png';
+import synapseDashboard from '~/assets/synapse-dashboard.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -209,8 +210,8 @@ export const Home = () => {
           alt: 'Synapse AI Automation Platform',
           textures: [
             {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
+              srcSet: `${synapseDashboard} 1280w, ${synapseDashboard} 2560w`,
+              placeholder: synapseDashboard,
             },
           ],
         }}

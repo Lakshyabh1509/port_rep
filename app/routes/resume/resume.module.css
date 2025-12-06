@@ -157,6 +157,16 @@
     margin-bottom: var(--spaceL);
 }
 
+.education .expHeader>div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceXS);
+}
+
+.education .expHeader>div>span:first-child {
+    margin-bottom: var(--spaceXS);
+}
+
 .actions {
     display: flex;
     justify-content: center;

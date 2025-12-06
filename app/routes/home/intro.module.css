@@ -80,6 +80,11 @@
   flex-direction: row;
   align-items: center;
   position: relative;
+  flex-wrap: wrap;
+
+  @media (--mediaMobile) {
+    flex-wrap: wrap;
+  }
 
   &[data-hidden='true'] {
     opacity: 0;
@@ -117,6 +122,11 @@
   color: color-mix(in lab, var(--text) 0%, transparent);
   transition: opacity 0.5s ease var(--durationM);
   isolation: isolate;
+
+  @media (--mediaMobile) {
+    flex-shrink: 1;
+    font-size: clamp(1.5rem, 8vw, 3rem);
+  }
 
   &::after {
     content: '';

@@ -13,14 +13,14 @@ import {
 import { baseMeta } from '~/utils/meta';
 import styles from './ai-automation.module.css';
 
-const title = 'AI Automation & Knowledge Workflow Platform';
+const title = 'SYNAPSE – AI Automation & Workflow Orchestration Platform';
 const description =
-    'Multi-modal AI automation platform featuring an autonomous website-to-brochure engine, multi-modal airline support agent, and RAG-based HR knowledge worker. Demonstrates end-to-end LLM application development.';
+    'Automates enterprise workflows using multi-model LLMs with structured execution frameworks, enabling content generation, travel intelligence, and document processing.';
 const roles = [
-    'LLM Application Development',
+    'LLM Orchestration',
     'RAG Pipeline Design',
-    'Multi-Modal AI',
     'Workflow Automation',
+    'Multi-Model AI',
 ];
 
 export const meta = () => {
@@ -36,62 +36,63 @@ export const AIAutomation = () => {
                 <ProjectHeader
                     title={title}
                     description={description}
-                    url="https://github.com/Lakshyabh1509/ai-automation-platform"
+                    url="https://synapse-fdea9ab5.base44.app/"
                     roles={roles}
                 />
 
                 <ProjectSection padding="top">
                     <ProjectTextRow>
-                        <ProjectSectionHeading>Three Integrated Modules</ProjectSectionHeading>
+                        <ProjectSectionHeading>Executive Summary</ProjectSectionHeading>
                         <ProjectSectionText>
-                            This platform showcases three distinct yet interconnected AI automation workflows,
-                            each demonstrating different aspects of modern LLM application development.
+                            Synapse automates enterprise workflows using multi-model LLMs with structured
+                            execution frameworks, enabling content generation, travel intelligence, and
+                            document processing.
                         </ProjectSectionText>
                     </ProjectTextRow>
                 </ProjectSection>
 
                 <ProjectSection>
+                    <ProjectTextRow>
+                        <ProjectSectionHeading>Core Workflows</ProjectSectionHeading>
+                    </ProjectTextRow>
                     <div className={styles.moduleGrid}>
                         <div className={styles.moduleCard}>
                             <div className={styles.moduleIcon}>🌐</div>
-                            <h3>Website-to-Brochure Engine</h3>
+                            <h3>Brochure Generator</h3>
                             <p>
-                                Autonomous crawler that extracts content from websites and generates
-                                professional marketing brochures using LLMs. Handles complex navigation,
-                                dynamic content, and produces polished PDF outputs.
+                                Auto web context extraction, JSON schema structured output,
+                                gradient card-based brochure rendering
                             </p>
                             <div className={styles.techTags}>
-                                <span>Python</span>
-                                <span>Crawl4AI</span>
-                                <span>LangChain</span>
+                                <span>Web Scraping</span>
+                                <span>LLM</span>
+                                <span>PDF Gen</span>
                             </div>
                         </div>
                         <div className={styles.moduleCard}>
                             <div className={styles.moduleIcon}>✈️</div>
-                            <h3>Airline Support Agent</h3>
+                            <h3>Flight Assistant</h3>
                             <p>
-                                Multi-modal AI agent handling customer queries with flight booking,
-                                cancellation, and rebooking capabilities. Features tool calling,
-                                context management, and natural conversation flow.
+                                Multi-turn conversational AI, image upload + ticket parsing,
+                                price comparison + flight analysis
                             </p>
                             <div className={styles.techTags}>
-                                <span>GPT-4</span>
-                                <span>Function Calling</span>
-                                <span>Gradio</span>
+                                <span>Multi-Modal</span>
+                                <span>Vision AI</span>
+                                <span>Conversational</span>
                             </div>
                         </div>
                         <div className={styles.moduleCard}>
                             <div className={styles.moduleIcon}>📚</div>
-                            <h3>RAG HR Knowledge Worker</h3>
+                            <h3>Knowledge Worker (RAG)</h3>
                             <p>
-                                Context-aware AI assistant for HR policy queries. Implements RAG
-                                with vector embeddings, semantic search, and grounded responses
-                                that cite source documents.
+                                Document upload, summary generation, query with cited sources,
+                                entity-based history tracking
                             </p>
                             <div className={styles.techTags}>
                                 <span>RAG</span>
-                                <span>ChromaDB</span>
-                                <span>OpenAI</span>
+                                <span>Vector DB</span>
+                                <span>Citations</span>
                             </div>
                         </div>
                     </div>
@@ -99,30 +100,47 @@ export const AIAutomation = () => {
 
                 <ProjectSection>
                     <ProjectTextRow>
-                        <ProjectSectionHeading>Technical Architecture</ProjectSectionHeading>
+                        <ProjectSectionHeading>Tech Stack</ProjectSectionHeading>
                     </ProjectTextRow>
                     <div className={styles.techStack}>
-                        <span className={styles.techBadge}>Python</span>
-                        <span className={styles.techBadge}>LangChain</span>
-                        <span className={styles.techBadge}>OpenAI GPT-4</span>
+                        <span className={styles.techBadge}>Base44 LLM Orchestration</span>
+                        <span className={styles.techBadge}>GPT-4</span>
                         <span className={styles.techBadge}>Claude</span>
-                        <span className={styles.techBadge}>ChromaDB</span>
-                        <span className={styles.techBadge}>Gradio</span>
-                        <span className={styles.techBadge}>Crawl4AI</span>
-                        <span className={styles.techBadge}>FastAPI</span>
+                        <span className={styles.techBadge}>Perplexity</span>
+                        <span className={styles.techBadge}>HuggingFace</span>
+                        <span className={styles.techBadge}>Tailwind</span>
+                        <span className={styles.techBadge}>Framer Motion</span>
+                        <span className={styles.techBadge}>JSON Schema</span>
+                        <span className={styles.techBadge}>Entity Persistence</span>
+                    </div>
+                </ProjectSection>
+
+                <ProjectSection>
+                    <ProjectTextRow>
+                        <ProjectSectionHeading>Keywords</ProjectSectionHeading>
+                    </ProjectTextRow>
+                    <div className={styles.keywords}>
+                        <span className={styles.keyword}>LLM Orchestration</span>
+                        <span className={styles.keyword}>RAG</span>
+                        <span className={styles.keyword}>Workflow Automation</span>
+                        <span className={styles.keyword}>Structured Outputs</span>
+                        <span className={styles.keyword}>Web Intelligence</span>
+                        <span className={styles.keyword}>Document Summaries</span>
+                        <span className={styles.keyword}>Tailwind</span>
+                        <span className={styles.keyword}>JSON Schema</span>
                     </div>
                 </ProjectSection>
 
                 <ProjectSection>
                     <ProjectSectionContent>
                         <ProjectTextRow center centerMobile noMargin>
-                            <ProjectSectionHeading>View the Project</ProjectSectionHeading>
+                            <ProjectSectionHeading>Explore the Project</ProjectSectionHeading>
                             <div className={styles.projectLinks}>
                                 <Link
-                                    href="https://github.com/Lakshyabh1509/ai-automation-platform"
+                                    href="https://synapse-fdea9ab5.base44.app/"
                                     className={styles.projectLink}
                                 >
-                                    View on GitHub →
+                                    View Live Demo →
                                 </Link>
                             </div>
                         </ProjectTextRow>

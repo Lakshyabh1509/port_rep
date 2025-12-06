@@ -169,6 +169,22 @@
     opacity: 0.9;
 }
 
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceXS);
+    margin-top: var(--spaceL);
+    justify-content: center;
+}
+
+.keyword {
+    background: rgb(var(--rgbText) / 0.05);
+    padding: var(--spaceXS) var(--spaceS);
+    border-radius: var(--borderRadiusS);
+    font-size: var(--fontSizeBodyXS);
+    color: rgb(var(--rgbText) / 0.6);
+}
+
 @media (max-width: 768px) {
 
     .archGrid,

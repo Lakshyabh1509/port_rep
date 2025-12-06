@@ -13,14 +13,14 @@ import {
 import { baseMeta } from '~/utils/meta';
 import styles from './omninexus.module.css';
 
-const title = 'OmniNexus: Enterprise Intelligence Suite';
+const title = 'OMNINEXUS ENTERPRISE INTELLIGENCE SUITE';
 const description =
-    'Multi-modal enterprise platform unifying financial operations, LangGraph agent swarms, and RAG systems. Reduced operational drag by 90% and increased prediction accuracy by 22%.';
+    'Next-gen platform for corporate action management, compliance monitoring, and AI-driven financial reporting used by investment banking teams for portfolio commands and document automation.';
 const roles = [
     'System Architecture',
-    'LLM Agent Development',
-    'RAG Implementation',
-    'Full-Stack Development',
+    'Document Automation',
+    'Financial Modeling',
+    'AI Integration',
 ];
 
 export const meta = () => {
@@ -36,55 +36,78 @@ export const OmniNexus = () => {
                 <ProjectHeader
                     title={title}
                     description={description}
-                    url="https://github.com/Lakshyabh1509/omninexus-platform"
+                    url="http://omninexus-platform.vercel.app"
                     roles={roles}
                 />
 
                 <ProjectSection padding="top">
                     <ProjectTextRow>
-                        <ProjectSectionHeading>The Challenge</ProjectSectionHeading>
+                        <ProjectSectionHeading>Executive Summary</ProjectSectionHeading>
                         <ProjectSectionText>
-                            Enterprises struggle with disconnected data silos and manual workflows.
-                            OmniNexus bridges this gap by unifying complex financial operations
-                            with autonomous AI agents and high-velocity data pipelines.
+                            OmniNexus is a next-gen platform for corporate action management, compliance
+                            monitoring, and AI-driven financial reporting used by investment banking teams
+                            for portfolio commands and document automation.
                         </ProjectSectionText>
                     </ProjectTextRow>
                 </ProjectSection>
 
                 <ProjectSection>
                     <ProjectTextRow>
-                        <ProjectSectionHeading>Key Features</ProjectSectionHeading>
+                        <ProjectSectionHeading>Core Modules</ProjectSectionHeading>
                     </ProjectTextRow>
                     <div className={styles.featureGrid}>
                         <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>🤖</span>
-                            <h4>LangGraph Agent Swarms</h4>
-                            <p>Coordinated multi-agent systems for complex task execution</p>
-                        </div>
-                        <div className={styles.featureCard}>
-                            <span className={styles.featureIcon}>🧠</span>
-                            <h4>RAG Pipelines</h4>
-                            <p>Retrieval-Augmented Generation for grounded, accurate AI responses</p>
-                        </div>
-                        <div className={styles.featureCard}>
                             <span className={styles.featureIcon}>📊</span>
-                            <h4>Financial Ops</h4>
-                            <p>Automated loan restructuring and risk assessment models</p>
+                            <h4>Command Center Dashboard</h4>
+                            <p>Live KPI monitoring, compliance heatmap calendar, event drill-down, real-time event ticker feed</p>
+                        </div>
+                        <div className={styles.featureCard}>
+                            <span className={styles.featureIcon}>📋</span>
+                            <h4>Corporate Action Management Platform (C-AMP)</h4>
+                            <p>Portfolio management with covenant details, documentation deliverable tracking, SLA-based escalation workflows, data ingestion via upload + API monitoring</p>
+                        </div>
+                        <div className={styles.featureCard}>
+                            <span className={styles.featureIcon}>📑</span>
+                            <h4>Intelligent Reporting Suite</h4>
+                            <p>Pitchbooks, Teaser Decks, CIMs generation with jsPDF + SheetJS, financial modeling + scenario analysis, data validation & error handling</p>
+                        </div>
+                        <div className={styles.featureCard}>
+                            <span className={styles.featureIcon}>🤖</span>
+                            <h4>AI Assistant</h4>
+                            <p>GPT/Claude-based financial Q&A, source citation, portfolio insight generation</p>
                         </div>
                     </div>
                 </ProjectSection>
 
                 <ProjectSection>
                     <ProjectTextRow>
-                        <ProjectSectionHeading>Technology Stack</ProjectSectionHeading>
+                        <ProjectSectionHeading>Tech Stack</ProjectSectionHeading>
                     </ProjectTextRow>
                     <div className={styles.techStack}>
-                        <span className={styles.techBadge}>Python</span>
-                        <span className={styles.techBadge}>LangChain</span>
                         <span className={styles.techBadge}>React</span>
-                        <span className={styles.techBadge}>PostgreSQL</span>
-                        <span className={styles.techBadge}>Redis</span>
-                        <span className={styles.techBadge}>Docker</span>
+                        <span className={styles.techBadge}>Vite</span>
+                        <span className={styles.techBadge}>Tailwind</span>
+                        <span className={styles.techBadge}>jsPDF</span>
+                        <span className={styles.techBadge}>SheetJS</span>
+                        <span className={styles.techBadge}>FastAPI</span>
+                        <span className={styles.techBadge}>Vercel</span>
+                        <span className={styles.techBadge}>RBAC</span>
+                    </div>
+                </ProjectSection>
+
+                <ProjectSection>
+                    <ProjectTextRow>
+                        <ProjectSectionHeading>Keywords</ProjectSectionHeading>
+                    </ProjectTextRow>
+                    <div className={styles.keywords}>
+                        <span className={styles.keyword}>Corporate Actions</span>
+                        <span className={styles.keyword}>Document Automation</span>
+                        <span className={styles.keyword}>Financial Modeling</span>
+                        <span className={styles.keyword}>AI Assistant</span>
+                        <span className={styles.keyword}>jsPDF</span>
+                        <span className={styles.keyword}>SheetJS</span>
+                        <span className={styles.keyword}>Risk Scoring</span>
+                        <span className={styles.keyword}>Portfolio Monitoring</span>
                     </div>
                 </ProjectSection>
 
@@ -93,6 +116,12 @@ export const OmniNexus = () => {
                         <ProjectTextRow center centerMobile noMargin>
                             <ProjectSectionHeading>Explore the Project</ProjectSectionHeading>
                             <div className={styles.projectLinks}>
+                                <Link
+                                    href="http://omninexus-platform.vercel.app"
+                                    className={styles.projectLink}
+                                >
+                                    View Live Demo →
+                                </Link>
                                 <Link
                                     href="https://github.com/Lakshyabh1509/omninexus-platform"
                                     className={styles.projectLink}

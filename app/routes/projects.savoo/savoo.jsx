@@ -1,11 +1,7 @@
 import sliceBackgroundLarge from '~/assets/slice-background-large.jpg';
 import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
 import sliceBackground from '~/assets/slice-background.jpg';
-import sliceAppLarge from '~/assets/slice-app-large.jpg';
-import sliceAppPlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceApp from '~/assets/slice-app.jpg';
 import { Footer } from '~/components/footer';
-import { Image } from '~/components/image';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
 import {
@@ -19,12 +15,11 @@ import {
     ProjectTextRow,
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
-import { media } from '~/utils/style';
 import styles from './savoo.module.css';
 
-const title = 'SAVOO: High-Performance Recipe API Platform';
+const title = 'SAVOO – High-Performance Dual Backend Recipe API (PHP + Node.js)';
 const description =
-    'A high-performance, secure RESTful API for managing and serving recipes at scale. Ships with two parallel backends: Pure PHP (framework-lite) and Node.js (Fastify + TypeScript), both targeting 10,000+ RPM with horizontal scalability.';
+    'Scalable, secure REST API for recipe management with parallel PHP and Node.js implementations optimized for 10k+ RPM throughput.';
 const roles = [
     'Backend Architecture',
     'API Development',
@@ -52,53 +47,42 @@ export const Savoo = () => {
                 <ProjectHeader
                     title={title}
                     description={description}
-                    url="https://github.com/Lakshyabh1509/savoo"
+                    url="https://github.com/Lakshyabh1509/SAVOO-RESTful-Recipes-API"
                     roles={roles}
                 />
 
                 <ProjectSection padding="top">
-                    <ProjectSectionContent>
-                        <Image
-                            raised
-                            srcSet={`${sliceApp} 1280w, ${sliceAppLarge} 2560w`}
-                            width={1280}
-                            height={800}
-                            placeholder={sliceAppPlaceholder}
-                            sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
-                            alt="SAVOO API Architecture Diagram"
-                        />
-                    </ProjectSectionContent>
+                    <ProjectTextRow>
+                        <ProjectSectionHeading>Executive Summary</ProjectSectionHeading>
+                        <ProjectSectionText>
+                            SAVOO is a scalable, secure REST API for recipe management with parallel
+                            PHP and Node.js implementations optimized for 10k+ RPM throughput.
+                        </ProjectSectionText>
+                    </ProjectTextRow>
                 </ProjectSection>
 
                 <ProjectSection>
                     <ProjectTextRow>
                         <ProjectSectionHeading>Dual Backend Architecture</ProjectSectionHeading>
-                        <ProjectSectionText>
-                            SAVOO implements a unique dual-backend strategy, allowing teams to choose
-                            the technology that best fits their deployment requirements.
-                        </ProjectSectionText>
                     </ProjectTextRow>
                     <div className={styles.archGrid}>
                         <div className={styles.archCard}>
                             <h4>🐘 PHP Backend</h4>
                             <ul>
-                                <li>Nginx + PHP-FPM</li>
-                                <li>Clean Architecture (PSR/SOLID)</li>
-                                <li>JWT Authentication</li>
-                                <li>Argon2id Password Hashing</li>
-                                <li>Redis Rate Limiting</li>
-                                <li>PHPStan + PHPCS</li>
+                                <li>Nginx → PHP-FPM</li>
+                                <li>Clean architecture + PSR-4</li>
+                                <li>JWT auth</li>
+                                <li>Redis rate limiting</li>
+                                <li>PHPStan + PHPUnit</li>
                             </ul>
                         </div>
                         <div className={styles.archCard}>
                             <h4>🟢 Node.js Backend</h4>
                             <ul>
                                 <li>Fastify + TypeScript</li>
-                                <li>Access + Refresh Token Pattern</li>
-                                <li>Redis-backed Caching</li>
-                                <li>bcrypt Password Hashing</li>
-                                <li>Connection Pooling</li>
-                                <li>TypeScript + ESLint</li>
+                                <li>Access + refresh tokens</li>
+                                <li>Redis caching + invalidation</li>
+                                <li>Jest + Supertest</li>
                             </ul>
                         </div>
                     </div>
@@ -106,52 +90,28 @@ export const Savoo = () => {
 
                 <ProjectSection>
                     <ProjectTextRow>
-                        <ProjectSectionHeading>Key Features</ProjectSectionHeading>
-                        <ProjectSectionText>
-                            Enterprise-grade features built for production reliability and scale.
-                        </ProjectSectionText>
+                        <ProjectSectionHeading>Infrastructure</ProjectSectionHeading>
                     </ProjectTextRow>
                     <div className={styles.featureList}>
                         <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>🔒</span>
+                            <span className={styles.featureIcon}>🐳</span>
                             <div>
-                                <h5>JWT Authentication</h5>
-                                <p>Access + refresh token pattern with secure rotation</p>
+                                <h5>Docker Compose</h5>
+                                <p>API + MySQL + Redis full stack containerization</p>
                             </div>
                         </div>
                         <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>⚡</span>
+                            <span className={styles.featureIcon}>🔐</span>
                             <div>
-                                <h5>Performance Focus</h5>
-                                <p>Optimized PDO/mysql2, prepared statements, connection pooling</p>
+                                <h5>Argon2id Password Hashing</h5>
+                                <p>State-of-the-art password security</p>
                             </div>
                         </div>
                         <div className={styles.featureItem}>
                             <span className={styles.featureIcon}>🛡️</span>
                             <div>
-                                <h5>Rate Limiting</h5>
-                                <p>Sliding window (Redis) for abusive traffic protection</p>
-                            </div>
-                        </div>
-                        <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>📦</span>
-                            <div>
-                                <h5>Clean Architecture</h5>
-                                <p>Controllers → Services → Repositories → Domain Models</p>
-                            </div>
-                        </div>
-                        <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>🐳</span>
-                            <div>
-                                <h5>Dockerized</h5>
-                                <p>Full stack containerization with Docker Compose</p>
-                            </div>
-                        </div>
-                        <div className={styles.featureItem}>
-                            <span className={styles.featureIcon}>✅</span>
-                            <div>
-                                <h5>Testing</h5>
-                                <p>PHPUnit + Jest with in-memory SQLite/supertest</p>
+                                <h5>Strict CORS & Sanitization</h5>
+                                <p>Enterprise-grade input validation and security</p>
                             </div>
                         </div>
                     </div>
@@ -162,17 +122,17 @@ export const Savoo = () => {
                         <ProjectSectionHeading>Technology Stack</ProjectSectionHeading>
                     </ProjectTextRow>
                     <div className={styles.techStack}>
-                        <span className={styles.techBadge}>PHP 8.2+</span>
-                        <span className={styles.techBadge}>Node.js</span>
-                        <span className={styles.techBadge}>TypeScript</span>
+                        <span className={styles.techBadge}>PHP-FPM</span>
                         <span className={styles.techBadge}>Fastify</span>
-                        <span className={styles.techBadge}>MySQL</span>
+                        <span className={styles.techBadge}>TypeScript</span>
                         <span className={styles.techBadge}>Redis</span>
-                        <span className={styles.techBadge}>Docker</span>
-                        <span className={styles.techBadge}>Nginx</span>
                         <span className={styles.techBadge}>JWT</span>
+                        <span className={styles.techBadge}>Clean Architecture</span>
+                        <span className={styles.techBadge}>Docker</span>
+                        <span className={styles.techBadge}>MySQL</span>
                         <span className={styles.techBadge}>PHPUnit</span>
                         <span className={styles.techBadge}>Jest</span>
+                        <span className={styles.techBadge}>Nginx</span>
                     </div>
                 </ProjectSection>
 
@@ -203,6 +163,22 @@ export const Savoo = () => {
                 </ProjectSection>
 
                 <ProjectSection>
+                    <ProjectTextRow>
+                        <ProjectSectionHeading>Keywords</ProjectSectionHeading>
+                    </ProjectTextRow>
+                    <div className={styles.keywords}>
+                        <span className={styles.keyword}>PHP-FPM</span>
+                        <span className={styles.keyword}>Fastify</span>
+                        <span className={styles.keyword}>Redis</span>
+                        <span className={styles.keyword}>JWT</span>
+                        <span className={styles.keyword}>Clean Architecture</span>
+                        <span className={styles.keyword}>Rate Limiting</span>
+                        <span className={styles.keyword}>Docker</span>
+                        <span className={styles.keyword}>High-Performance APIs</span>
+                    </div>
+                </ProjectSection>
+
+                <ProjectSection>
                     <ProjectSectionContent>
                         <ProjectTextRow center centerMobile noMargin>
                             <ProjectSectionHeading>Explore the Project</ProjectSectionHeading>
@@ -211,7 +187,7 @@ export const Savoo = () => {
                             </ProjectSectionText>
                             <div className={styles.projectLinks}>
                                 <Link
-                                    href="https://github.com/Lakshyabh1509/savoo"
+                                    href="https://github.com/Lakshyabh1509/SAVOO-RESTful-Recipes-API"
                                     className={styles.projectLink}
                                 >
                                     View on GitHub →

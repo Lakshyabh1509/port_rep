@@ -57,11 +57,12 @@ export const Home = () => {
   const projectFour = useRef();
   const projectFive = useRef();
   const projectSix = useRef();
+  const projectSeven = useRef();
   const experience = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, experience, details];
+    const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, projectSeven, experience, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -103,18 +104,19 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
+      {/* Project 1: CHRONOS COMPLIANCE ENGINE */}
       <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="OmniNexus: Enterprise Intelligence Suite"
-        description="Multi-modal enterprise platform unifying financial operations, LangGraph agent swarms, and RAG systems. Reduced operational drag by 90% and increased prediction accuracy by 22%."
+        title="CHRONOS: Corporate Actions & Covenant Lifecycle Management"
+        description="Enterprise compliance, covenant monitoring, and corporate actions management platform with real-time risk scoring, Basel III/Dodd-Frank regulatory reporting, and 90% reduction in manual covenant review."
         buttonText="View Project"
-        buttonLink="/projects/omninexus"
+        buttonLink="/projects/chronos"
         model={{
           type: 'laptop',
-          alt: 'OmniNexus Dashboard - Enterprise Intelligence Platform',
+          alt: 'Chronos Compliance Engine Dashboard',
           textures: [
             {
               srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
@@ -123,14 +125,15 @@ export const Home = () => {
           ],
         }}
       />
+      {/* Project 2: TRANSACTIQ */}
       <ProjectSummary
         id="project-2"
         alternate
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="TransactIQ: Transaction Intelligence"
-        description="Enterprise transaction analytics with ML-powered churn prediction achieving 94% accuracy, real-time KPI dashboards, 2FA security, and automated report generation."
+        title="TRANSACTIQ: Transaction Analytics & Merchant Intelligence"
+        description="Full-stack transaction performance analytics platform with ETL pipelines, real-time KPIs, RFM customer segmentation, ML-powered churn prediction, and merchant performance dashboards. Scaled to 500k+ daily transactions."
         buttonText="View Project"
         buttonLink="/projects/transactiq"
         model={{
@@ -148,13 +151,83 @@ export const Home = () => {
           ],
         }}
       />
+      {/* Project 3: APEX MARKETING */}
       <ProjectSummary
         id="project-3"
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="SAVOO: High-Performance Recipe API"
-        description="Dual-backend REST API platform (PHP + Node.js/Fastify) with Redis caching, JWT authentication, and rate limiting. Architected for 10,000+ requests per minute."
+        title="APEX: Marketing Intelligence Suite"
+        description="Unified marketing intelligence with predictive analytics (85% accuracy), Firebase/WebRTC real-time collaboration, ETL connectors for Salesforce/HubSpot, RLS governance, and interactive dashboards. Reduced reporting time from 4h to 15min."
+        buttonText="View Project"
+        buttonLink="/projects/apex-marketing"
+        model={{
+          type: 'laptop',
+          alt: 'Apex Marketing Suite Dashboard',
+          textures: [
+            {
+              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+              placeholder: sliceTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      {/* Project 4: OMNINEXUS */}
+      <ProjectSummary
+        id="project-4"
+        alternate
+        sectionRef={projectFour}
+        visible={visibleSections.includes(projectFour.current)}
+        index={4}
+        title="OMNINEXUS: Enterprise Intelligence Suite"
+        description="Next-gen platform for corporate action management with Command Center dashboard, C-AMP portfolio management, Intelligent Reporting (jsPDF/SheetJS), and GPT/Claude-powered AI assistant for financial Q&A."
+        buttonText="View Project"
+        buttonLink="/projects/omninexus"
+        model={{
+          type: 'phone',
+          alt: 'OmniNexus Platform Dashboard',
+          textures: [
+            {
+              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
+              placeholder: gamestackTexture2Placeholder,
+            },
+            {
+              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
+              placeholder: gamestackTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      {/* Project 5: SYNAPSE */}
+      <ProjectSummary
+        id="project-5"
+        sectionRef={projectFive}
+        visible={visibleSections.includes(projectFive.current)}
+        index={5}
+        title="SYNAPSE: AI Automation & Workflow Orchestration"
+        description="Multi-model LLM automation platform with Brochure Generator (web extraction + PDF), Flight Assistant (multi-turn + image parsing), and RAG Knowledge Worker. Powered by Base44, GPT-4, Claude, and HuggingFace."
+        buttonText="View Project"
+        buttonLink="/projects/ai-automation"
+        model={{
+          type: 'laptop',
+          alt: 'Synapse AI Automation Platform',
+          textures: [
+            {
+              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+              placeholder: sprTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      {/* Project 6: SAVOO */}
+      <ProjectSummary
+        id="project-6"
+        alternate
+        sectionRef={projectSix}
+        visible={visibleSections.includes(projectSix.current)}
+        index={6}
+        title="SAVOO: High-Performance Dual Backend Recipe API"
+        description="Scalable REST API with parallel PHP (Nginx/PHP-FPM) and Node.js (Fastify/TypeScript) backends. Features JWT auth, Redis rate limiting, Argon2id hashing, Docker Compose, and 10k+ RPM throughput."
         buttonText="View Project"
         buttonLink="/projects/savoo"
         model={{
@@ -168,38 +241,14 @@ export const Home = () => {
           ],
         }}
       />
+      {/* Project 7: EDQMP */}
       <ProjectSummary
-        id="project-4"
-        alternate
-        sectionRef={projectFour}
-        visible={visibleSections.includes(projectFour.current)}
-        index={4}
-        title="Apex Marketing Intelligence Suite"
-        description="Real-time collaboration platform with WebRTC screen sharing, AI-powered chat analysis, and live analytics. Enables multiple users to collaborate with secure file sharing."
-        buttonText="View Project"
-        buttonLink="/projects/apex-marketing"
-        model={{
-          type: 'phone',
-          alt: 'Apex Marketing Suite Dashboard',
-          textures: [
-            {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
-            },
-            {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-5"
-        sectionRef={projectFive}
-        visible={visibleSections.includes(projectFive.current)}
-        index={5}
-        title="EDQMP: Enterprise Data Quality Platform"
-        description="Automated data validation and anomaly detection for enterprise data pipelines. Features real-time monitoring, compliance reporting, and self-healing data workflows."
+        id="project-7"
+        sectionRef={projectSeven}
+        visible={visibleSections.includes(projectSeven.current)}
+        index={7}
+        title="EDQMP: Enterprise Data Quality & Monitoring Platform"
+        description="Enterprise-grade data quality validation with Airflow DAG tracking, anomaly detection (Z-score, Isolation Forest), SLA monitoring, lineage tracking, and governance framework. Deployed on Docker/Kubernetes with Terraform IaC."
         buttonText="View Project"
         buttonLink="/projects/edqmp"
         model={{
@@ -209,27 +258,6 @@ export const Home = () => {
             {
               srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
               placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-6"
-        alternate
-        sectionRef={projectSix}
-        visible={visibleSections.includes(projectSix.current)}
-        index={6}
-        title="AI Automation Platform"
-        description="Multi-modal AI automation with website-to-brochure engine, airline support agent, and RAG-based HR knowledge worker. Demonstrates end-to-end LLM application development."
-        buttonText="View Project"
-        buttonLink="/projects/ai-automation"
-        model={{
-          type: 'laptop',
-          alt: 'AI Automation Platform',
-          textures: [
-            {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
             },
           ],
         }}

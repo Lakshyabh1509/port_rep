@@ -81,3 +81,47 @@
     transform: translateY(-2px);
     opacity: 0.9;
 }
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spaceL);
+    margin-top: var(--spaceXL);
+}
+
+.metricCard {
+    background: linear-gradient(135deg, rgb(var(--rgbAccent) / 0.1), rgb(var(--rgbAccent) / 0.05));
+    border: 1px solid rgb(var(--rgbAccent) / 0.2);
+    border-radius: var(--borderRadiusL);
+    padding: var(--spaceXL) var(--spaceL);
+    text-align: center;
+}
+
+.metricValue {
+    display: block;
+    font-size: 2rem;
+    font-weight: var(--fontWeightBold);
+    color: rgb(var(--rgbAccent));
+    margin-bottom: var(--spaceS);
+}
+
+.metricLabel {
+    font-size: var(--fontSizeBodyS);
+    color: var(--colorTextBody);
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spaceXS);
+    margin-top: var(--spaceL);
+    justify-content: center;
+}
+
+.keyword {
+    background: rgb(var(--rgbText) / 0.05);
+    padding: var(--spaceXS) var(--spaceS);
+    border-radius: var(--borderRadiusS);
+    font-size: var(--fontSizeBodyXS);
+    color: rgb(var(--rgbText) / 0.6);
+}

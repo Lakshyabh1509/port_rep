@@ -18,6 +18,7 @@ import {
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
 import styles from './chronos.module.css';
+import { DisplacementSphere } from './DisplacementSphere';
 
 const Model = lazy(() =>
     import('~/components/model').then(module => ({ default: module.Model }))
@@ -46,6 +47,7 @@ export const Chronos = () => {
     return (
         <>
             <ProjectContainer>
+                <DisplacementSphere />
                 <ProjectHeader
                     title={title}
                     description={description}

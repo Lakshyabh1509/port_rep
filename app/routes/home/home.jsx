@@ -15,6 +15,7 @@ import transactiqDashboard from '~/assets/transactiq-dashboard.png';
 import apexDashboard from '~/assets/apex-dashboard.png';
 import omninexusDashboard from '~/assets/omninexus-dashboard.png';
 import synapseDashboard from '~/assets/synapse-dashboard.png';
+import edqmpDashboard from '~/assets/edqmp-dashboard.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -253,8 +254,8 @@ export const Home = () => {
           alt: 'EDQMP Data Quality Dashboard',
           textures: [
             {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
+              srcSet: `${edqmpDashboard} 1280w, ${edqmpDashboard} 2560w`,
+              placeholder: edqmpDashboard,
             },
           ],
         }}

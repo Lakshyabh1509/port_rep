@@ -1,6 +1,4 @@
-import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
+import edqmpDashboard from '~/assets/edqmp-dashboard.png';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { useTheme } from '~/components/theme-provider';
@@ -73,8 +71,8 @@ export const EDQMP = () => {
                                             {
                                                 ...deviceModels.laptop,
                                                 texture: {
-                                                    srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-                                                    placeholder: sprTexturePlaceholder,
+                                                    srcSet: `${edqmpDashboard} 1280w, ${edqmpDashboard} 2560w`,
+                                                    placeholder: edqmpDashboard,
                                                     sizes: laptopSizes,
                                                 },
                                             },

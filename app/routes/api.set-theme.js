@@ -1,4 +1,4 @@
-import { json, createCookieSessionStorage } from '@remix-run/node';
+import { json, createCookieSessionStorage } from '@remix-run/cloudflare';
 
 // Get session secret from environment (works on Vercel, Netlify, and Cloudflare)
 function getSessionSecret(context) {
